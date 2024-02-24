@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 88cb35c2d857c7642affb3fb8d948f10
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - VHSEffectMaterial: {fileID: 2100000, guid: f7089051002f22d478086f9bc04e68fb, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
