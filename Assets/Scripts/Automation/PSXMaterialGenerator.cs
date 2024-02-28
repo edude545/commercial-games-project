@@ -26,6 +26,7 @@ public class PSXMaterialGeneratorEditor : UnityEditor.Editor {
     private PSXMaterialGenerator generator;
     private Shader psxShader;
     private string path;
+    private string savepath;
 
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
@@ -50,29 +51,42 @@ public class PSXMaterialGeneratorEditor : UnityEditor.Editor {
         patharray = patharray.Take(patharray.Length - 1).ToArray();
         path = String.Join("/", patharray);
         generateMaterials($"{path}/{generator.MeshesPath}");
+        savepath = path + "/PSX Materials";
+        Debug.Log($"savepath: {savepath}");
+        if (!AssetDatabase.IsValidFolder(savepath)) {
+            AssetDatabase.CreateFolder(path, "PSX Materials");
+        }
+        AssetDatabase.SaveAssets();
         AssetDatabase.StopAssetEditing();
     }
 
-    private void generateMaterials(string path) {
-        foreach (string subpath in AssetDatabase.GetSubFolders(path)) {
-            Debug.Log($"{path}, {subpath}");
-            Debug.Log(subpath.Replace(path, path + "/PSX Materials"));
+    private void generateMaterials(string searchpath) {
+        foreach (string subpath in AssetDatabase.GetSubFolders(searchpath)) {
+            //Debug.Log($"{path}, {subpath}");
+            //Debug.Log(subpath.Replace(path, path + "/PSX Materials"));
             generateMaterials(subpath);
         }
-        /*foreach (string assetpath in Directory.GetFiles(path, "*.fbx", SearchOption.TopDirectoryOnly)) {
+        //string psxmatpath = searchpath.Replace(path, path + "/PSX Materials");
+        /*if (!AssetDatabase.IsValidFolder(psxmatpath)) {
+            AssetDatabase.CreateFolder(path, "PSX Materials");
+        }*/
+        //Debug.Log($"searchpath: {searchpath}\npsxmatpath: {psxmatpath}");
+        Debug.Log($"searchpath: {searchpath}");
+        foreach (string assetpath in Directory.GetFiles(searchpath, "*.fbx", SearchOption.TopDirectoryOnly)) {
             foreach (UnityEngine.Object asset in AssetDatabase.LoadAllAssetsAtPath(assetpath)) {
                 Material mat = asset as Material;
                 if (mat != null) {
                     Debug.Log($"{mat.name}, {mat.mainTexture.name}");
                     Material psxmat = new Material(psxShader);
                     psxmat.mainTexture = mat.mainTexture;
-                    AssetDatabase.CreateAsset(psxmat, assetpath);
+                    //AssetDatabase.CreateAsset(psxmat, psxmatpath+"/"+mat.name+"_psx.asset");
+                    AssetDatabase.CreateAsset(psxmat, $"{savepath}/{mat.name}_psx.asset");
                 }
                 //Debug.Log($"{ass.name}, {true?"material":"not material"}");
             }
             //ModelImporter importer = (ModelImporter)AssetImporter.GetAtPath(assetpath);
             //Debug.Log(importer.materials);
-        }*/
+        }
     }
 
 }
