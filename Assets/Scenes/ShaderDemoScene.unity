@@ -2777,14 +2777,6 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6648639739665570307, guid: 6106823a878fe9742838b4e115d28725, type: 3}
-      propertyPath: Gravity
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6648639739665570307, guid: 6106823a878fe9742838b4e115d28725, type: 3}
-      propertyPath: JumpPower
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6761833647650164258, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2844,18 +2836,6 @@ PrefabInstance:
     - target: {fileID: 6761833647650164258, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7510998645265498547, guid: 6106823a878fe9742838b4e115d28725, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7510998645265498547, guid: 6106823a878fe9742838b4e115d28725, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 7510998645265498547, guid: 6106823a878fe9742838b4e115d28725, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6106823a878fe9742838b4e115d28725, type: 3}

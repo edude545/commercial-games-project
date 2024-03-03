@@ -10,3 +10,6 @@ https://porkbellygames.itch.io/retro-mansion-assets-demo
 
 VHS Effect for Unity URP by Ben Cloward (bandinopla), MIT license
 https://github.com/bandinopla/VHS-Effect
+
+AllSky Free by Distant Lantern, Unity Asset Store license
+https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014

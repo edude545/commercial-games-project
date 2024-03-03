@@ -50,9 +50,9 @@ MonoBehaviour:
   Camera: {fileID: 4629874486060651093}
   LookTarget: {fileID: 0}
   Speed: 2
-  JumpPower: 60
+  JumpPower: 6
   Sensitivity: 3
-  Gravity: -1
+  Gravity: -0.1
   Noclip: 0
   ScrollSensitivity: 1
 --- !u!54 &7510998645265498547
@@ -65,11 +65,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1904338828986725031
 GameObject:

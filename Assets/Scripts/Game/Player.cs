@@ -26,12 +26,12 @@ public class Player : MonoBehaviour {
 
     Vector3 startPos;
     Rigidbody rb;
-    Collider col;
+    public Collider col;
     bool raycastedThisFrame = false;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
+        //col = GetComponent<Collider>();
         startPos = transform.position;
     }
 
