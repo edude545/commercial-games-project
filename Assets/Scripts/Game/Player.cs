@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
     public Collider col;
     bool raycastedThisFrame = false;
 
+    private bool controlsLocked = false;
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
@@ -109,7 +111,15 @@ public class Player : MonoBehaviour {
     }
 
     public bool GetControlsLocked() {
-        return false;
+        return controlsLocked;
+    }
+
+    public void LockControls() {
+        controlsLocked = true;
+    }
+
+    public void UnlockControls() {
+        controlsLocked = false;
     }
 
     protected void DoRaycast() {
