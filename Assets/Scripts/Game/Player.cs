@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 
     private bool controlsLocked = false;
 
+  
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();

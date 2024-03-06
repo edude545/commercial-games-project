@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ShiftingObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector3 direction = Vector3.forward; 
+    public float speed = 1.0f; 
+    public float duration = 5.0f; 
 
-    // Update is called once per frame
+    private float elapsedTime = 0.0f; 
+
     void Update()
     {
-        
+        transform.Translate(direction.normalized * speed * Time.deltaTime);
+
+        elapsedTime += Time.deltaTime;
+
+        if (elapsedTime >= duration)
+        { 
+            enabled = false;
+        }
     }
 }
