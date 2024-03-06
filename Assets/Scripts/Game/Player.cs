@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
     public Collider col;
     bool raycastedThisFrame = false;
 
-    private bool controlsLocked = false;
+    public bool controlsLocked = false;
 
   
 

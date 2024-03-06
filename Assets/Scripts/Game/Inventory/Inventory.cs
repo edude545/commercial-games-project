@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         toggleInventory(false);
+        GetComponent<Player>().controlsLocked = false;
 
         foreach (Slot uiSlot in InventorySlots)
         {
@@ -31,7 +32,23 @@ public class Inventory : MonoBehaviour
         itemRaycast(Input.GetMouseButtonDown(0));
 
         if (Input.GetKeyDown(KeyCode.E))
-            toggleInventory(!inventory.activeInHierarchy);
+        {
+            if (inventory.activeInHierarchy)
+            {
+                // If the inventory is open, close it and unlock controls
+                toggleInventory(false);
+                GetComponent<Player>().controlsLocked = false;
+            }
+            else
+            {
+                // If the inventory is closed, open it and lock controls
+                toggleInventory(true);
+                GetComponent<Player>().controlsLocked = true;
+            }
+        }
+
+
+
     }
 
     private void itemRaycast(bool hasClicked = false)
@@ -50,6 +67,7 @@ public class Inventory : MonoBehaviour
                     if (newItem)
                     {
                         addItemToInventory(newItem);
+
                     }
                 }
                 else // Get the name
@@ -113,11 +131,16 @@ public class Inventory : MonoBehaviour
 
     private void toggleInventory(bool enable)
     {
+     
         inventory.SetActive(enable);
+       
 
         Cursor.lockState = enable ? CursorLockMode.None : CursorLockMode.Locked;
+        
         Cursor.visible = enable;
 
+      
+        
         // Disable the rotation of the camera.
         //Camera.main.GetComponent<Player>().Sensitivity = enable ? 0 : 2;
     }
