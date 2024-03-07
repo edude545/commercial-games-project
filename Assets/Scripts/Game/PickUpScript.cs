@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PickUpScript : MonoBehaviour
 {
-    public GameObject player;
+    public Player player;
     public Transform holdPos;
+    public Camera PickupCamera;
     //if you copy from below this point, you are legally required to like the video
     public float throwForce = 500f; //force at which the object is thrown at
     public float pickUpRange = 5f; //how far the player can pickup the object from
@@ -22,7 +23,7 @@ public class PickUpScript : MonoBehaviour
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
-
+        activatePlayerCamera();
         //mouseLookScript = player.GetComponent<MouseLookScript>();
     }
     void Update()
@@ -64,10 +65,24 @@ public class PickUpScript : MonoBehaviour
 
         }
     }
+
+    void activatePlayerCamera() {
+        player.Camera.enabled = true;
+        player.UnlockControls();
+        PickupCamera.enabled = false;
+    }
+
+    void activatePickupCamera() {
+        player.Camera.enabled = false;
+        player.LockControls();
+        PickupCamera.enabled = true;
+    }
+
     void PickUpObject(GameObject pickUpObj)
     {
         if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
         {
+            activatePickupCamera();
             heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
             heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
             heldObjRb.isKinematic = true;
@@ -79,6 +94,7 @@ public class PickUpScript : MonoBehaviour
     }
     void DropObject()
     {
+        activatePlayerCamera();
         //re-enable collision with player
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0; //object assigned back to default layer
@@ -104,8 +120,8 @@ public class PickUpScript : MonoBehaviour
             float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
             float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
             //rotate the object depending on mouse X-Y Axis
-            heldObj.transform.Rotate(Vector3.down, XaxisRotation);
-            heldObj.transform.Rotate(Vector3.right, YaxisRotation);
+            heldObj.transform.Rotate(Vector3.down, XaxisRotation, Space.World);
+            heldObj.transform.Rotate(Vector3.right, YaxisRotation, Space.World);
         }
         else
         {
@@ -118,6 +134,7 @@ public class PickUpScript : MonoBehaviour
     void ThrowObject()
     {
         //same as drop function, but add force to object before undefining it
+        activatePlayerCamera();
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0;
         heldObjRb.isKinematic = false;
