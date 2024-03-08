@@ -17,5 +17,5 @@ https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-s
 Inventory System by HawksByte
 https://www.youtube.com/watch?v=5l2D6xtZIgk&t=1628s
 
-Retro PSX nature pack by Elegant Crow, CC0 License
-https://elegantcrow.itch.io/retro-psx-nature-pack
+Retro PSX style tree pack by Elegant Crow, CC0 License
+https://elegantcrow.itch.io/psx-retro-style-tree-pack
