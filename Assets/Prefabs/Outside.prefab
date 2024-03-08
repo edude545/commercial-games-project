@@ -47,7 +47,7 @@ Transform:
   - {fileID: 3047715050808979027}
   - {fileID: 6296092795130999033}
   m_Father: {fileID: 8106638620360846004}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6900505599843355768
 GameObject:
@@ -80,7 +80,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8106638620360846004}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!218 &2728717347843699511
 Terrain:
@@ -155,13 +155,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8106638620386338764}
   - {fileID: 3048596055755352491}
   - {fileID: 9017932504637493240}
+  - {fileID: 457849773794785186}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8106638620386338760
+--- !u!1 &9054064290140086750
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,10 +169,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8106638620386338764}
-  - component: {fileID: 8106638620386338767}
-  - component: {fileID: 8106638620386338766}
-  - component: {fileID: 8106638620386338761}
+  - component: {fileID: 457849773794785186}
+  - component: {fileID: 5301795236129021392}
+  - component: {fileID: 829647599937084461}
+  - component: {fileID: 7264418667458420125}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -180,36 +180,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8106638620386338764
+--- !u!4 &457849773794785186
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8106638620386338760}
+  m_GameObject: {fileID: 9054064290140086750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.342642, y: -2.0574996, z: 1.1262608}
-  m_LocalScale: {x: 2.5871665, y: 1, z: 2.0617282}
+  m_LocalPosition: {x: 0.7169, y: -2.3245, z: -0.8215}
+  m_LocalScale: {x: 19.037949, y: 0.4291, z: 16.277014}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8106638620360846004}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8106638620386338767
+--- !u!33 &5301795236129021392
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8106638620386338760}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8106638620386338766
+  m_GameObject: {fileID: 9054064290140086750}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &829647599937084461
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8106638620386338760}
+  m_GameObject: {fileID: 9054064290140086750}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 958689bff7f59874493174b22a476afe, type: 2}
+  - {fileID: 2100000, guid: eed8d4a9fb307e840bd1817015a79335, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,20 +245,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8106638620386338761
-MeshCollider:
+--- !u!65 &7264418667458420125
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8106638620386338760}
+  m_GameObject: {fileID: 9054064290140086750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3172128463553605525
 PrefabInstance:
   m_ObjectHideFlags: 0
