@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
             else
             {
                 // If the inventory is closed, open it and lock controls
-                toggleInventory(true);
+                toggleInventory(true);  
                 GetComponent<Player>().controlsLocked = true;
             }
         }

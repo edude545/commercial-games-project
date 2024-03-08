@@ -5,7 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using System;
 
-public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 
     public bool hovered;
@@ -85,6 +85,4 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         thisItemSelected = true;
         Debug.Log("Item selected");
     }
-
-
 }
