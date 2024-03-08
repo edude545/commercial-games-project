@@ -12,6 +12,8 @@ public class Room : MonoBehaviour
     public Room[] AdjacentRooms;
     public UnityEvent[] OnRoomEntered;
 
+    public Dictionary<Room, int> distances;
+
     public void Awake() {
         foreach (Room room in AdjacentRooms) {
             if (!room.IsAdjacent(this)) {
