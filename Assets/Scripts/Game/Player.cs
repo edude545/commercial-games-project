@@ -26,10 +26,10 @@ public class Player : MonoBehaviour {
 
     Vector3 startPos;
     Rigidbody rb;
-    public Collider col;
+    private Collider col;
     bool raycastedThisFrame = false;
 
-    public bool controlsLocked = false;
+    public bool ControlsLocked { get; private set; } = false;
 
   
 
@@ -113,15 +113,15 @@ public class Player : MonoBehaviour {
     }
 
     public bool GetControlsLocked() {
-        return controlsLocked;
+        return ControlsLocked;
     }
 
     public void LockControls() {
-        controlsLocked = true;
+        ControlsLocked = true;
     }
 
     public void UnlockControls() {
-        controlsLocked = false;
+        ControlsLocked = false;
     }
 
     protected void DoRaycast() {

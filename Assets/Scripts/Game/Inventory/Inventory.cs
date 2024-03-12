@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         toggleInventory(false);
-        GetComponent<Player>().controlsLocked = false;
+        GetComponent<Player>().UnlockControls();
 
         foreach (Slot uiSlot in InventorySlots)
         {
@@ -37,13 +37,13 @@ public class Inventory : MonoBehaviour
             {
                 // If the inventory is open, close it and unlock controls
                 toggleInventory(false);
-                GetComponent<Player>().controlsLocked = false;
+                GetComponent<Player>().UnlockControls();
             }
             else
             {
                 // If the inventory is closed, open it and lock controls
                 toggleInventory(true);  
-                GetComponent<Player>().controlsLocked = true;
+                GetComponent<Player>().LockControls();
             }
         }
 
