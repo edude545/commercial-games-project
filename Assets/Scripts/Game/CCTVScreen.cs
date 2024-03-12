@@ -19,7 +19,7 @@ public class CCTVScreen : MonoBehaviour
     private void loadRenderTexture() {
         if (Camera == null) return;
         //Debug.Log("Screen getting render texture...");
-        Debug.Log("Loading render texture");
+        //Debug.Log("Loading render texture");
         RawImage ri = transform.GetChild(0).GetChild(0).GetComponent<RawImage>();
         ri.texture = Camera.renderTexture;
         //ri.SetNativeSize();

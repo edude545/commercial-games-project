@@ -11,18 +11,33 @@ public class House : MonoBehaviour
 
     public Transform RoomsParent;
 
+    public Room PlayerRoom { get; private set; }
+
     private Room[] rooms;
 
-    public void Awake() {
+    public void Start() {
         InitializeHouse();
     }
 
     private void initializeRooms() {
         List<Room> roomsList = new List<Room>();
         for (int i = 0; i < RoomsParent.childCount; i++) {
-            roomsList.Add(RoomsParent.GetChild(i).GetComponent<Room>());
+            Transform floor = RoomsParent.GetChild(i).transform;
+            for (int j = 0; j < floor.childCount; j++) {
+                Room room = floor.GetChild(j).GetComponent<Room>();
+                roomsList.Add(room);
+                room.House = this;
+            }
         }
         rooms = roomsList.ToArray();
+    }
+
+    private void printlist(IEnumerable list) {
+        string s = "";
+        foreach (var el in list) {
+            s += el.ToString() + ", ";
+        }
+        Debug.Log(s.Substring(0, s.Length - 2));
     }
 
     private void roomDijkstra(Room source) {
@@ -30,23 +45,21 @@ public class House : MonoBehaviour
         var prev = new Dictionary<Room, Room>();
         var q = new List<Room>();
         foreach (Room room in rooms) {
-            if (room == source) {
-                dist[room] = 0; continue;
-            }
             dist[room] = int.MaxValue;
             q.Add(room);
         }
+        dist[source] = 0;
         while (q.Count > 0) {
             Room closest = source;
+            // min = vertex in q with min dist[u]
             int min = int.MaxValue;
             foreach (Room room in q) {
-                if (dist[room] < min) {
+                Debug.Log($"Distance to {room.name} is {dist[room]}");
+                if (dist[room] < min && room != source) {
+                    Debug.Log($"{room.name}'s distance {dist[room]} lower than {min}; choosing this as new closest room");
                     closest = room;
                     min = dist[room];
                 }
-            }
-            if (closest == source) {
-                Debug.LogError("Something went wrong! A room is isolated?");
             }
             q.Remove(closest);
             foreach (Room neighbor in closest.AdjacentRooms) {
@@ -61,9 +74,9 @@ public class House : MonoBehaviour
         }
         string s = $"{source.name}:\n";
         foreach (Room key in dist.Keys) {
-            s += $"{key.name} : {dist[key]}";
+            s += $"{key.name} : {dist[key]}\n";
         }
-        Debug.Log(s);
+        source.Distances = dist;
     }
 
     public void InitializeHouse() {
@@ -71,6 +84,10 @@ public class House : MonoBehaviour
         foreach (Room room in rooms) {
             roomDijkstra(room);
         }
+    }
+
+    public void OnPlayerEnteredRoom(Room room) {
+        PlayerRoom = room;
     }
 
 }
@@ -82,7 +99,7 @@ public class HouseEditor : UnityEditor.Editor {
 
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
-        if (GUILayout.Button("Debug initialize")) {
+        if (GUILayout.Button("Initialize")) {
             house.InitializeHouse();
         }
     }
