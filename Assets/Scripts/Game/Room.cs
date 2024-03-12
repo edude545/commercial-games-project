@@ -32,7 +32,7 @@ public class Room : MonoBehaviour
 
     public void Update() {
         foreach (Anomaly anom in anomalies) {
-            if (anom.isActiveAndEnabled && Distances[House.PlayerRoom] >= anom.MinimumRoomDistanceToTrigger) {
+            if (anom.isActiveAndEnabled && House.PlayerRoom != null && Distances[House.PlayerRoom] >= anom.MinimumRoomDistanceToTrigger) {
                 anom.WhileTriggerConditionsMet();
             }
         }
@@ -56,6 +56,7 @@ public class Room : MonoBehaviour
     public void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             House.OnPlayerEnteredRoom(this);
+            DebugUI.UpdateRoomLabel(House);
         }
     }
 
