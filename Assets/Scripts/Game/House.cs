@@ -13,7 +13,7 @@ public class House : MonoBehaviour
 
     public Room PlayerRoom { get; private set; }
 
-    private Room[] rooms;
+    public Room[] Rooms { get; private set; }
 
     public void Start() {
         InitializeHouse();
@@ -29,7 +29,7 @@ public class House : MonoBehaviour
                 room.House = this;
             }
         }
-        rooms = roomsList.ToArray();
+        Rooms = roomsList.ToArray();
     }
 
     private void printlist(IEnumerable list) {
@@ -44,7 +44,7 @@ public class House : MonoBehaviour
         var dist = new Dictionary<Room, int>();
         var prev = new Dictionary<Room, Room>();
         var q = new List<Room>();
-        foreach (Room room in rooms) {
+        foreach (Room room in Rooms) {
             dist[room] = int.MaxValue;
             q.Add(room);
         }
@@ -54,9 +54,9 @@ public class House : MonoBehaviour
             // min = vertex in q with min dist[u]
             int min = int.MaxValue;
             foreach (Room room in q) {
-                Debug.Log($"Distance to {room.name} is {dist[room]}");
+                //Debug.Log($"Distance to {room.name} is {dist[room]}");
                 if (dist[room] < min && room != source) {
-                    Debug.Log($"{room.name}'s distance {dist[room]} lower than {min}; choosing this as new closest room");
+                    //Debug.Log($"{room.name}'s distance {dist[room]} lower than {min}; choosing this as new closest room");
                     closest = room;
                     min = dist[room];
                 }
@@ -81,7 +81,7 @@ public class House : MonoBehaviour
 
     public void InitializeHouse() {
         initializeRooms();
-        foreach (Room room in rooms) {
+        foreach (Room room in Rooms) {
             roomDijkstra(room);
         }
     }

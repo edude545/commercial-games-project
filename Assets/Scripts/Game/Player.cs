@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 
     public Camera Camera;
     [HideInInspector] public GameObject LookTarget;
+    public GameObject Flashlight;
 
     public float Speed = 0.1f;
     public float JumpPower = 60f;
@@ -26,17 +27,19 @@ public class Player : MonoBehaviour {
 
     Vector3 startPos;
     Rigidbody rb;
-    public Collider col;
+    private Collider col;
     bool raycastedThisFrame = false;
 
-    public bool controlsLocked = false;
+    public bool ControlsLocked { get; private set; } = false;
 
+    public static Player Instance;
   
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
         startPos = transform.position;
+        Instance = this;
     }
 
     private void Start() {
@@ -59,7 +62,12 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F12)) {
             ScreenCapture.CaptureScreenshot("screenshot");
         }
-
+        if (Input.GetMouseButtonDown(0)) {
+            Interact();
+        }
+        if (Input.GetKeyDown(KeyCode.F)) {
+            Flashlight.SetActive(!Flashlight.activeSelf);
+        }
         if (!GetControlsLocked()) {
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 Application.Quit();
@@ -67,7 +75,7 @@ public class Player : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.V)) {
                 Noclip = !Noclip;
-                col.enabled = !Noclip;
+                GetComponent<CapsuleCollider>().enabled = !Noclip;
                 Debug.Log("Noclip = " + Noclip);
             }
 
@@ -112,16 +120,33 @@ public class Player : MonoBehaviour {
 
     }
 
+    // Try interaction raycast
+    public void Interact() {
+        RaycastHit hit;
+        int layerMask = 1 << 9;
+        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
+            Debug.Log($"Hit object {hit.collider.name}");
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Anomaly anom = hit.collider.GetComponent<Anomaly>();
+            if (anom != null) {
+                anom.OnInteract();
+            }
+        } else {
+            Debug.Log("Did not hit anything");
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        }
+    }
+
     public bool GetControlsLocked() {
-        return controlsLocked;
+        return ControlsLocked;
     }
 
     public void LockControls() {
-        controlsLocked = true;
+        ControlsLocked = true;
     }
 
     public void UnlockControls() {
-        controlsLocked = false;
+        ControlsLocked = false;
     }
 
     protected void DoRaycast() {
