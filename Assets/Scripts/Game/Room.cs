@@ -28,11 +28,19 @@ public class Room : MonoBehaviour
 
     public void Start() {
         FindChildren();
+        foreach (Anomaly anom in anomalies) {
+            anom.enabled = false;
+        }
     }
 
     public void Update() {
         foreach (Anomaly anom in anomalies) {
-            if (anom.isActiveAndEnabled && House.PlayerRoom != null && Distances[House.PlayerRoom] >= anom.MinimumRoomDistanceToTrigger) {
+            if (
+                anom.isActiveAndEnabled &&
+                House.PlayerRoom != null &&
+                Distances[House.PlayerRoom] >= anom.MinimumRoomDistanceToTrigger &&
+                !anom.HasTriggered || anom.CanTriggerMultipleTimes
+                ) {
                 anom.WhileTriggerConditionsMet();
             }
         }
@@ -57,6 +65,10 @@ public class Room : MonoBehaviour
         if (other.tag == "Player") {
             House.OnPlayerEnteredRoom(this);
             DebugUI.UpdateRoomLabel(House);
+            foreach (Anomaly anom in anomalies) {
+                anom.enabled = true;
+                Debug.Log($"Activated anomaly {anom.name}");
+            }
         }
     }
 

@@ -59,7 +59,9 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F12)) {
             ScreenCapture.CaptureScreenshot("screenshot");
         }
-
+        if (Input.GetMouseButtonDown(0)) {
+            Interact();
+        }
         if (!GetControlsLocked()) {
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 Application.Quit();
@@ -67,7 +69,7 @@ public class Player : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.V)) {
                 Noclip = !Noclip;
-                col.enabled = !Noclip;
+                GetComponent<CapsuleCollider>().enabled = !Noclip;
                 Debug.Log("Noclip = " + Noclip);
             }
 
@@ -110,6 +112,19 @@ public class Player : MonoBehaviour {
             rb.velocity = Vector3.zero;
         }
 
+    }
+
+    // Try interaction raycast
+    public void Interact() {
+        RaycastHit hit;
+        int layerMask = 1 << 9;
+        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
+            Debug.Log($"Hit object {hit.collider.name}");
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+        } else {
+            Debug.Log("Did not hit anything");
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        }
     }
 
     public bool GetControlsLocked() {
