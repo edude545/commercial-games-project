@@ -9,7 +9,7 @@ public abstract class Anomaly : MonoBehaviour
     public int MinimumRoomDistanceToTrigger = 2;
 
     [Tooltip("Chance each frame for this anomaly to trigger if all other conditions are met.\nChance to trigger after a minute is 1-(1-p)^3600 For reference:\n0.001 - 97%\n0.0005 - 83%\n0.0004 - 76%\n0.0003 - 66%\n0.0002 - 51%\n0.0001 - 30%\n")]
-    [Range(0f, 0.001f)]
+    [Range(0f, 0.01f)]
     public float TriggerChancePerFrame = 0.0003f;
 
     public bool CanTriggerMultipleTimes = false;
@@ -21,11 +21,22 @@ public abstract class Anomaly : MonoBehaviour
 
     public virtual void WhileTriggerConditionsMet() {
         if (Random.Range(0f,1f) < TriggerChancePerFrame) {
+            IsTriggered = true;
+            HasTriggered = true;
             OnAnomalyTriggered();
         }
     }
 
+    public virtual void OnInteract() {
+        if (IsTriggered) {
+            IsTriggered = false;
+            OnAnomalyFixed();
+        }
+    }
+
     public abstract void OnAnomalyTriggered();
+
+    public abstract void OnAnomalyFixed();
 
 }
  

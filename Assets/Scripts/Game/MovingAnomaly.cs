@@ -16,4 +16,8 @@ public class MovingAnomaly : Anomaly {
         Debug.Log("Object shifted!");
     }
 
+    public override void OnAnomalyFixed() {
+        transform.position = initialPosition;
+    }
+
 }

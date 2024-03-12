@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 
     public Camera Camera;
     [HideInInspector] public GameObject LookTarget;
+    public GameObject Flashlight;
 
     public float Speed = 0.1f;
     public float JumpPower = 60f;
@@ -61,6 +62,9 @@ public class Player : MonoBehaviour {
         }
         if (Input.GetMouseButtonDown(0)) {
             Interact();
+        }
+        if (Input.GetKeyDown(KeyCode.F)) {
+            Flashlight.SetActive(Flashlight.activeSelf);
         }
         if (!GetControlsLocked()) {
             if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -121,6 +125,10 @@ public class Player : MonoBehaviour {
         if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
             Debug.Log($"Hit object {hit.collider.name}");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            Anomaly anom = hit.collider.GetComponent<Anomaly>();
+            if (anom != null) {
+                anom.OnInteract();
+            }
         } else {
             Debug.Log("Did not hit anything");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
