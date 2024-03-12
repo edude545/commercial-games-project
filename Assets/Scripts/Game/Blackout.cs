@@ -11,7 +11,13 @@ public class Blackout : MonoBehaviour
 
     public static Blackout Instance;
 
-    bool direction; // true is fade to black, false is fade FROM black
+    enum State {
+        FADE_OUT, // Fade to black
+        HOLD, // Hold and display text
+        FADE_IN // Fade from black
+    }
+
+    State state; // true is fade to black, false is fade FROM black
     float time;
     float fadeTime;
     Action midFadeEvent;
@@ -28,22 +34,24 @@ public class Blackout : MonoBehaviour
     }
 
     public void Update() {
-        time += Speed * Time.deltaTime;
-        img.color = new Color(img.color.r, img.color.g, img.color.b, direction ? time : 1f - time);
-        if (time >= fadeTime) {
-            time = 0f;
-            if (direction) {
-                direction = false;
-                onFadeOutFinished();
-            } else {
-                onFadeInFinished();
+        if (state == State.FADE_IN || state == State.FADE_OUT) {
+            time += Speed * Time.deltaTime;
+            img.color = new Color(img.color.r, img.color.g, img.color.b, state == State.FADE_OUT ? time : 1f - time);
+            if (time >= fadeTime) {
+                time = 0f;
+                if (direction) {
+                    direction = false;
+                    onFadeOutFinished();
+                } else {
+                    onFadeInFinished();
+                }
             }
         }
     }
 
     public static void FadeToBlack(Action _midFadeEvent, float _fadeTime) {
         Instance.midFadeEvent = _midFadeEvent;
-        Instance.direction = true;
+        Instance.state = State.FADE_OUT;
         Instance.time = 0f;
         Instance.fadeTime = _fadeTime;
         Instance.gameObject.SetActive(true);
