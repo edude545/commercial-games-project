@@ -30,7 +30,7 @@ public abstract class Anomaly : MonoBehaviour
     public virtual void OnInteract() {
         if (IsTriggered) {
             IsTriggered = false;
-            Blackout.FadeToBlack(OnAnomalyFixed, 1.5f);
+            Blackout.FadeToBlack(OnAnomalyFixed);
         }
     }
 

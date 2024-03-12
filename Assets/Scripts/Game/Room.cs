@@ -30,7 +30,6 @@ public class Room : MonoBehaviour
         FindChildren();
         foreach (Anomaly anom in anomalies) {
             anom.enabled = false;
-            Debug.Log($"Disabled {anom.name}");
         }
     }
 
