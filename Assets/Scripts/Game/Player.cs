@@ -32,12 +32,14 @@ public class Player : MonoBehaviour {
 
     public bool ControlsLocked { get; private set; } = false;
 
+    public static Player Instance;
   
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
         startPos = transform.position;
+        Instance = this;
     }
 
     private void Start() {
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour {
             Interact();
         }
         if (Input.GetKeyDown(KeyCode.F)) {
-            Flashlight.SetActive(Flashlight.activeSelf);
+            Flashlight.SetActive(!Flashlight.activeSelf);
         }
         if (!GetControlsLocked()) {
             if (Input.GetKeyDown(KeyCode.Escape)) {
