@@ -16,7 +16,15 @@ public class DebugUI : MonoBehaviour
     }
 
     public static void UpdateRoomLabel(House house) {
-        Instance.RoomLabel.text = house.PlayerRoom == null ? "outside" : house.PlayerRoom.name;
+        if (house.PlayerRoom == null) {
+            Instance.RoomLabel.text = "outside";
+        } else {
+            int dist = house.Rooms[3].Distances[house.PlayerRoom];
+            Instance.RoomLabel.text = $"{house.PlayerRoom.name}, {dist} away from {house.Rooms[3].name}";
+            if (dist >= 2) {
+                Instance.RoomLabel.text += "\nAnomaly can trigger here";
+            }
+        }
     }
 
 }
