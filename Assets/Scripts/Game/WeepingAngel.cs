@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+// code from www.youtube.com/watch?v=_e57zSZSOS8
 
 public class WeepingAngel : MonoBehaviour
 {
