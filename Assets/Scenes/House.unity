@@ -737,6 +737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 1906935492332773544, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2145124385473172428, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: TriggerChancePerFrame
       value: 0.01
@@ -812,6 +816,14 @@ PrefabInstance:
     - target: {fileID: 3283456684514896008, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732545535695843021, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732545535695843021, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8181343279043458127, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: TriggerChancePerFrame

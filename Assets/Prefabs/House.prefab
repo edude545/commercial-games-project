@@ -4031,29 +4031,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a7cd4ba0dec2054e83831e8ccad7d05, type: 3}
---- !u!1 &87579966104101756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8443546036228062790, guid: 1a7cd4ba0dec2054e83831e8ccad7d05, type: 3}
-  m_PrefabInstance: {fileID: 8366181646651923770}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4523911518499747594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87579966104101756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d29c43b2663c4448861af714cd0818a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.0003
-  CanTriggerMultipleTimes: 0
-  IsTriggered: 0
-  HasTriggered: 0
-  destinationPosition: {fileID: 1189825810162016874}
 --- !u!4 &755748421777963462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9108056145531479292, guid: 1a7cd4ba0dec2054e83831e8ccad7d05, type: 3}
