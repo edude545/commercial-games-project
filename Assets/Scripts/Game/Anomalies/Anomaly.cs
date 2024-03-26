@@ -23,6 +23,7 @@ public abstract class Anomaly : MonoBehaviour
         if (Random.Range(0f,1f) < TriggerChancePerFrame) {
             IsTriggered = true;
             HasTriggered = true;
+            Debug.Log($"Anomaly {name} triggered");
             OnAnomalyTriggered();
         }
     }
