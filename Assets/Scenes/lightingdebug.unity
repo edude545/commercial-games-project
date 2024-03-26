@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c48d7448f9f6089478f126fff1e42255, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 9fdcb34126487294996d8ddb72e78f50, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -174,7 +174,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: de849fb4115eacb4b8a0cd79851fe16c, type: 2}
+  - {fileID: 2100000, guid: c4a70e89720ead24ab34daa05b25a2be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,13 +221,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14351302}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34465912, y: 0.17933795, z: 0.07512403, w: 0.91837054}
-  m_LocalPosition: {x: -0.225, y: 0.49, z: 0.757}
+  m_LocalRotation: {x: 0.27255026, y: -0.4759429, z: -0.25602737, w: 0.79601806}
+  m_LocalPosition: {x: -0.105, y: 0.351, z: 0.699}
   m_LocalScale: {x: 0.23545545, y: 0.23545545, z: 0.23545545}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 37.308, y: 28.636, z: 19.202}
+  m_LocalEulerAnglesHint: {x: 10.965, y: -66.059, z: -42.8}
 --- !u!1 &701802020
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -406,7 +406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: de849fb4115eacb4b8a0cd79851fe16c, type: 2}
+  - {fileID: 2100000, guid: c4a70e89720ead24ab34daa05b25a2be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -617,7 +617,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: de849fb4115eacb4b8a0cd79851fe16c, type: 2}
+  - {fileID: 2100000, guid: c4a70e89720ead24ab34daa05b25a2be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
