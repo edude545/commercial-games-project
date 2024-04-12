@@ -8,6 +8,7 @@ TagManager:
   - canPickUp
   - book
   - Anomaly
+  - block
   layers:
   - Default
   - TransparentFX
