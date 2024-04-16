@@ -19,6 +19,8 @@ public abstract class Anomaly : MonoBehaviour
     [HideInInspector]
     public bool HasTriggered = false;
 
+    public static int anomalyCount = 0;
+
     public virtual void WhileTriggerConditionsMet() {
         if (Random.Range(0f,1f) < TriggerChancePerFrame) {
             IsTriggered = true;
@@ -32,6 +34,8 @@ public abstract class Anomaly : MonoBehaviour
         if (IsTriggered) {
             IsTriggered = false;
             Blackout.FadeToBlack(OnAnomalyFixed);
+            anomalyCount++;
+            Debug.Log(anomalyCount);
         }
     }
 

@@ -15,6 +15,7 @@ public class House : MonoBehaviour
 
     public Room[] Rooms { get; private set; }
 
+
     public void Start() {
         InitializeHouse();
     }
