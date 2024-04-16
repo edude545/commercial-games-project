@@ -29,7 +29,7 @@ public class VHSEffectPostProcessPass : ScriptableRenderPass
         descriptor.depthBufferBits = 0;
 
         var renderer = renderingData.cameraData.renderer;
-        source = renderer.cameraColorTarget;
+        source = renderer.cameraColorTargetHandle;
 
         // Create a temporary render texture using the descriptor from above.
         cmd.GetTemporaryRT(temporaryRTIdA, descriptor, FilterMode.Bilinear);

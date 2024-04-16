@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Recorder.OutputPath;
 
 public class House : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class House : MonoBehaviour
 
     public Room[] Rooms { get; private set; }
 
+    private int safety = 0;
+
 
     public void Start() {
         InitializeHouse();
@@ -24,6 +28,10 @@ public class House : MonoBehaviour
         List<Room> roomsList = new List<Room>();
         for (int i = 0; i < RoomsParent.childCount; i++) {
             Transform floor = RoomsParent.GetChild(i).transform;
+            Debug.Log($"Finding rooms on floor {floor.name}");
+            if (!floor.gameObject.activeSelf) {
+                continue;
+            }
             for (int j = 0; j < floor.childCount; j++) {
                 Room room = floor.GetChild(j).GetComponent<Room>();
                 roomsList.Add(room);
@@ -31,6 +39,12 @@ public class House : MonoBehaviour
             }
         }
         Rooms = roomsList.ToArray();
+
+        string s = "";
+        foreach (var rm in Rooms) {
+            s += rm.name + ", ";
+        }
+        Debug.Log(s);
     }
 
     private void printlist(IEnumerable list) {
@@ -51,24 +65,36 @@ public class House : MonoBehaviour
         }
         dist[source] = 0;
         while (q.Count > 0) {
-            Room closest = source;
-            // min = vertex in q with min dist[u]
+            Room u = source;
+            // u = vertex in q with min dist[u]
             int min = int.MaxValue;
             foreach (Room room in q) {
                 //Debug.Log($"Distance to {room.name} is {dist[room]}");
-                if (dist[room] < min && room != source) {
+                if (room != source && dist[room] < min) {
                     //Debug.Log($"{room.name}'s distance {dist[room]} lower than {min}; choosing this as new closest room");
-                    closest = room;
-                    min = dist[room];
+                    u = room;
+                    min = dist[u];
                 }
             }
-            q.Remove(closest);
-            foreach (Room neighbor in closest.AdjacentRooms) {
-                if (q.Contains(neighbor)) {
-                    int alt = dist[closest] + 1;
-                    if (alt < dist[neighbor]) {
-                        dist[neighbor] = alt;
-                        prev[neighbor] = closest;
+            Debug.Log($"Chose u: {u.name}");
+            q.Remove(u);
+            string sd = "";
+            foreach (Room v in u.AdjacentRooms) {
+                sd += $"Running roomdijkstra on {source.name}, u = {u.name}, v = {v.name}";
+                safety += 1;
+                if (safety >= 10000) {
+                    if (safety == 10000) {
+                        Debug.Log($"Exceeded 10000 iterations running roomdijkstra on {source.name}, closest was {u.name}, was checking neighbor {v.name}");
+                        Debug.Log(sd);
+                    }
+                    return;
+                }
+                if (q.Contains(v)) {
+                    int alt = dist[u] + 1;
+                    if (alt < dist[v]) {
+                        Debug.Log($"Found shorter path between {u.name} and {v.name}; {alt} > {dist[v]}");
+                        dist[v] = alt;
+                        prev[v] = u;
                     }
                 }
             }
@@ -81,6 +107,7 @@ public class House : MonoBehaviour
     }
 
     public void InitializeHouse() {
+        safety = 0;
         initializeRooms();
         foreach (Room room in Rooms) {
             roomDijkstra(room);

@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
     Vector3 startPos;
     Rigidbody rb;
-    private Collider col;
+    private Collider coll;
     bool raycastedThisFrame = false;
 
     public bool ControlsLocked { get; private set; } = false;
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour {
                 anom.OnInteract();
             }
         } else {
-            Debug.Log("Did not hit anything");
+            //Debug.Log("Did not hit anything");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
         }
     }
