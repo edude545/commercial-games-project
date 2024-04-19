@@ -2740,6 +2740,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2935609623664210163, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158967547903526035, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309955249937309504, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7342745665100621156, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: House
       value: 
@@ -2756,9 +2768,21 @@ PrefabInstance:
       propertyPath: AdjacentRooms.Array.data[2]
       value: 
       objectReference: {fileID: 7899214221173276622}
+    - target: {fileID: 7409799648670852275, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7441699419791439426, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_Name
       value: MainRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480869617568999492, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013562482142932716, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
