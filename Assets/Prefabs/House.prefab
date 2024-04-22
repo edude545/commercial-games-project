@@ -384,6 +384,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2527697042605846561}
     m_Modifications:
+    - target: {fileID: 1748299622868712443, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748299622868712443, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: m_Volume
+      value: 0.694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748299622868712443, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748299622868712443, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134084014668818884, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
       propertyPath: House
       value: 
@@ -2681,21 +2697,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 7441699419791439426, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7480869617568999492, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8360322979389462171, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2977
+      value: -0.0028
       objectReference: {fileID: 0}
     - target: {fileID: 8360322979389462171, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0052
+      value: -0.0096
       objectReference: {fileID: 0}
     - target: {fileID: 8360322979389462171, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3706
+      value: -0.0189
       objectReference: {fileID: 0}
     - target: {fileID: 9013562482142932716, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_IsActive
@@ -3597,6 +3617,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5cda0877819050349824b2f770b7bdcc, type: 2}
+    - target: {fileID: -4766064301394829762, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3985542965352905258, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
       propertyPath: m_IsActive
       value: 1
