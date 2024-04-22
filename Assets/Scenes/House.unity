@@ -818,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2004143888, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2004143888, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_BounceIntensity
