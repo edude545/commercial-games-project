@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 6648639739665570307}
   - component: {fileID: 7510998645265498547}
   - component: {fileID: 1241478238328069402}
-  - component: {fileID: 5492849809669481177}
   - component: {fileID: 7564841279651083224}
   m_Layer: 0
   m_Name: Player
@@ -300,21 +299,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5492849809669481177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111190934055832105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78612cbde9de3f849b94ea0053bb3305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredAnomalyCount: 5
-  messageText: {fileID: 6655117181015914445}
-  messageDuration: 2
 --- !u!136 &7564841279651083224
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -692,7 +676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'How to fix anomaly - press e when nearby one
+  m_text: 'Click on the anomaly to fix it
 
     F to toggle flashlight'
   m_isRightToLeft: 0
