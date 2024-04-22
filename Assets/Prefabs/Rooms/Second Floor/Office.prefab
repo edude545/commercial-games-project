@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.0001
+  TriggerChancePerFrame: 0.00032
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0

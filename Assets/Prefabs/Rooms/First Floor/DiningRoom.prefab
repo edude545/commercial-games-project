@@ -522,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 2208118450460928301}
     - target: {fileID: 1800391654351191865, guid: 2806b9c93c6fb8c4a991b3ffb3f70841, type: 3}
       propertyPath: TriggerChancePerFrame
-      value: 0.00239
+      value: 0.0004
       objectReference: {fileID: 0}
     - target: {fileID: 1800391654351191865, guid: 2806b9c93c6fb8c4a991b3ffb3f70841, type: 3}
       propertyPath: CanTriggerMultipleTimes
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.01
+  TriggerChancePerFrame: 0.00021
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
@@ -1011,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 8279915292343635630}
     - target: {fileID: 1800391654351191865, guid: 2806b9c93c6fb8c4a991b3ffb3f70841, type: 3}
       propertyPath: TriggerChancePerFrame
-      value: 0.00249
+      value: 0.0003
       objectReference: {fileID: 0}
     - target: {fileID: 1800391654351191865, guid: 2806b9c93c6fb8c4a991b3ffb3f70841, type: 3}
       propertyPath: CanTriggerMultipleTimes

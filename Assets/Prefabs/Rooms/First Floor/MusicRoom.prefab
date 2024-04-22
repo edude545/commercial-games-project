@@ -207,11 +207,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 1
-  TriggerChancePerFrame: 0.01
+  TriggerChancePerFrame: 0.0003
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
   destinationPosition: {fileID: 1403315377592611655}
+  destinationRotation: {fileID: 0}
 --- !u!1001 &1999323259947308391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.00117
+  TriggerChancePerFrame: 0.00037
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0

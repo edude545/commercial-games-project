@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7622603502976508223}
   - component: {fileID: 1494755068562707847}
   - component: {fileID: 1830912337215416026}
-  m_Layer: 0
+  - component: {fileID: 4197634147972873104}
+  m_Layer: 9
   m_Name: bathtub
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 4.3977995, y: -0.021204472, z: 2.06596}
   m_LocalScale: {x: 0.41000006, y: 0.41000003, z: 0.41000003}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 8732578579153017393}
   m_Father: {fileID: 3114522891374250250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7622603502976508223
@@ -107,6 +109,56 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.9552402, y: 2.7212977, z: 1.8238482}
   m_Center: {x: -0.00000047683716, y: 0, z: 0.91192317}
+--- !u!114 &4197634147972873104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600211354990936675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d29c43b2663c4448861af714cd0818a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinimumRoomDistanceToTrigger: 2
+  TriggerChancePerFrame: 0.0003
+  CanTriggerMultipleTimes: 0
+  IsTriggered: 0
+  HasTriggered: 0
+  destinationPosition: {fileID: 8732578579153017393}
+  destinationRotation: {fileID: 8732578579153017393}
+--- !u!1 &6853489175587268498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8732578579153017393}
+  m_Layer: 9
+  m_Name: Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8732578579153017393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853489175587268498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.24271846, y: -0.15579161, z: 0.2747822, w: 0.91723037}
+  m_LocalPosition: {x: 0, y: 0, z: 4.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1282949469863579856}
+  m_LocalEulerAnglesHint: {x: 32.065, y: -10.36, z: 30.37}
 --- !u!1 &7548459408596784451
 GameObject:
   m_ObjectHideFlags: 0
