@@ -67,8 +67,10 @@ public class Room : MonoBehaviour
             House.OnPlayerEnteredRoom(this);
             DebugUI.UpdateRoomLabel(House);
             foreach (Anomaly anom in anomalies) {
+                if (!anom.enabled) {
+                    Debug.Log($"Saw {anom.name} for the first time");
+                }
                 anom.enabled = true;
-                Debug.Log($"Activated anomaly {anom.name}");
             }
         }
     }

@@ -2811,6 +2811,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0802
       objectReference: {fileID: 0}
+    - target: {fileID: 8361006384665469386, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: TriggerChancePerFrame
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 9013562482142932716, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_IsActive
       value: 1

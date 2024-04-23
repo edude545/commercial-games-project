@@ -36,7 +36,6 @@ public class Blackout : MonoBehaviour
         img = GetComponent<RawImage>();
         Instance = this;
         gameObject.SetActive(false);
-        Debug.Log("Blackout no longer active");
     }
 
     public void Update() {

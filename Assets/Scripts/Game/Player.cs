@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
                 Debug.Log("Noclip = " + Noclip);
             }
 
-            float speedmul;
+            //float speedmul;
            // if (Input.GetKey(KeyCode.LeftShift)) { speedmul = 3f; } else if (Input.GetKey(KeyCode.LeftControl)) { speedmul = 0.2f; } else { speedmul = 1f; }
 
             if (Noclip) {

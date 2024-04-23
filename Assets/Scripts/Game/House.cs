@@ -28,7 +28,6 @@ public class House : MonoBehaviour
         List<Room> roomsList = new List<Room>();
         for (int i = 0; i < RoomsParent.childCount; i++) {
             Transform floor = RoomsParent.GetChild(i).transform;
-            Debug.Log($"Finding rooms on floor {floor.name}");
             if (!floor.gameObject.activeSelf) {
                 continue;
             }
@@ -39,20 +38,6 @@ public class House : MonoBehaviour
             }
         }
         Rooms = roomsList.ToArray();
-
-        string s = "";
-        foreach (var rm in Rooms) {
-            s += rm.name + ", ";
-        }
-        Debug.Log(s);
-    }
-
-    private void printlist(IEnumerable list) {
-        string s = "";
-        foreach (var el in list) {
-            s += el.ToString() + ", ";
-        }
-        Debug.Log(s.Substring(0, s.Length - 2));
     }
 
     private void roomDijkstra(Room source) {
@@ -76,32 +61,22 @@ public class House : MonoBehaviour
                     min = dist[u];
                 }
             }
-            Debug.Log($"Chose u: {u.name}");
             q.Remove(u);
-            string sd = "";
             foreach (Room v in u.AdjacentRooms) {
-                sd += $"Running roomdijkstra on {source.name}, u = {u.name}, v = {v.name}";
                 safety += 1;
                 if (safety >= 10000) {
                     if (safety == 10000) {
-                        Debug.Log($"Exceeded 10000 iterations running roomdijkstra on {source.name}, closest was {u.name}, was checking neighbor {v.name}");
-                        Debug.Log(sd);
                     }
                     return;
                 }
                 if (q.Contains(v)) {
                     int alt = dist[u] + 1;
                     if (alt < dist[v]) {
-                        Debug.Log($"Found shorter path between {u.name} and {v.name}; {alt} > {dist[v]}");
                         dist[v] = alt;
                         prev[v] = u;
                     }
                 }
             }
-        }
-        string s = $"{source.name}:\n";
-        foreach (Room key in dist.Keys) {
-            s += $"{key.name} : {dist[key]}\n";
         }
         source.Distances = dist;
     }
