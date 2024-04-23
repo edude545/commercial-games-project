@@ -7,15 +7,17 @@ public class AreaUnlocks : MonoBehaviour
 {
     public int requiredAnomalyCount = 5; // Specify the required anomaly count for unlocking
     public TextMeshProUGUI messageText; // Reference to the UI Text element
+    public TextMeshProUGUI taskText;
     public float messageDuration = 2f; // Duration for which the message will be displayed
 
+    public Generator generator;
     private bool displayMessage = false;
     private float messageTimer = 0f;
 
     void Start()
     {
         UpdateAreaUnlockStatus();
-        messageText.text = "Anomalies solved: " + Anomaly.anomalyCount;
+        //messageText.text = "Anomalies solved: " + Anomaly.anomalyCount;
     }
 
     void Update()
@@ -31,6 +33,19 @@ public class AreaUnlocks : MonoBehaviour
                 messageTimer = 0f;
             }
         }
+
+        if (Anomaly.anomalyCount >= 6 && generator.generatorFixed == false)
+        {
+            taskText.text = "Task: Fix the generator in the basement";
+        }
+        else if (Anomaly.anomalyCount < 6)
+        {
+            taskText.text = "Task: Solve anomalies";
+        }
+        else if (generator.generatorFixed == true)
+        {
+            taskText.text = "Task: eScApE";
+        }
     }
 
     void UpdateAreaUnlockStatus()
@@ -40,6 +55,8 @@ public class AreaUnlocks : MonoBehaviour
             Destroy(gameObject); // Destroy this GameObject if the required anomaly count is met
             displayMessage = true; // Optionally display a message
         }
+
+       
     }
 
     public void SetRequiredAnomalyCount(int count)
@@ -58,6 +75,7 @@ public class AreaUnlocks : MonoBehaviour
             messageText.text = "Solve " + requiredAnomalyCount + " anomalies, anomalies currently solved: " + Anomaly.anomalyCount;
             displayMessage = true;
         }
+        
     }
 
     void OnDestroy()
