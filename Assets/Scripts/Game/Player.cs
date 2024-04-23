@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public float Gravity = -1f;
     public bool Noclip = false;
     public float ScrollSensitivity = 1f;
+    public float InteractionDistance = 2.2f;
 
     float pmx = 0f;
     float pmy = 0f;
@@ -123,8 +124,9 @@ public class Player : MonoBehaviour {
     // Try interaction raycast
     public void Interact() {
         RaycastHit hit;
-        int layerMask = 1 << 9;
-        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask)) {
+        int layerMask = LayerMask.GetMask("Anomaly", "House");
+        //int layerMask = (1 << 9) & (1 << 10); // anomaly layer and house layer
+        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask)) {
             Debug.Log($"Hit object {hit.collider.name}");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Anomaly anom = hit.collider.GetComponent<Anomaly>();
