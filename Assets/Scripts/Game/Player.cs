@@ -21,6 +21,10 @@ public class Player : MonoBehaviour {
     public float ScrollSensitivity = 1f;
     public float InteractionDistance = 2.2f;
 
+    public float maxFear = 100;
+    public float currentFear;
+    public HealthBar fear;
+
     float pmx = 0f;
     float pmy = 0f;
     float mx = 0f;
@@ -45,6 +49,8 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+        currentFear = 0;
+        fear.SetMaxFear(maxFear);
     }
 
     private void Update() {
@@ -119,6 +125,8 @@ public class Player : MonoBehaviour {
             rb.velocity = Vector3.zero;
         }
 
+        TakeFearDamage(0.001f);
+
     }
 
     // Try interaction raycast
@@ -132,10 +140,12 @@ public class Player : MonoBehaviour {
             Anomaly anom = hit.collider.GetComponent<Anomaly>();
             if (anom != null) {
                 anom.OnInteract();
+                HealFear(10);
             }
         } else {
             //Debug.Log("Did not hit anything");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            TakeFearDamage(20);
         }
     }
 
@@ -159,6 +169,18 @@ public class Player : MonoBehaviour {
         if (Physics.Raycast(ray, out rayHit)) {
             LookTarget = rayHit.transform.gameObject;
         }
+    }
+
+    void TakeFearDamage(float damage)
+    {
+        currentFear += damage;
+        fear.SetFear(currentFear);
+    }
+
+    void HealFear(float heal)
+    {
+        currentFear -= heal;
+        fear.SetFear(currentFear);
     }
 
 }

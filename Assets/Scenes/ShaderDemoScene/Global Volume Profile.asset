@@ -39,15 +39,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   intensity:
-    m_OverrideState: 1
-    m_Value: 0.041
+    m_OverrideState: 0
+    m_Value: 0.2
   noiseColor:
     m_OverrideState: 1
-    m_Value: {r: 0.6886792, g: 0.4710306, b: 0.4710306, a: 1}
+    m_Value: {r: 0.6509434, g: 0.26713246, b: 0.26713246, a: 1}
     hdr: 0
   scanlinesHeight:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.87
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,4 +85,4 @@ MonoBehaviour:
     m_Value: 565
   colorPrecision:
     m_OverrideState: 1
-    m_Value: 31.3
+    m_Value: 31
