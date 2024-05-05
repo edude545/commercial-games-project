@@ -34,7 +34,7 @@ Material:
     - Boolean_43476D73: 1
     - Boolean_D258FF8E: 1
     - Vector1_B2CC132F: 64
-    - Vector1_E8746023: 64
+    - Vector1_E8746023: 16
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &2964160738214711715

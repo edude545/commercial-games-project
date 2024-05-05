@@ -111,7 +111,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _TextureResolution: 64
+    - _TextureResolution: 12
     - _UseColorPrecision: 1
     - _UsePixelation: 1
     - _UseVertexJitter: 1
