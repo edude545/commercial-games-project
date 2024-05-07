@@ -26,12 +26,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3039520625705176930}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.99, y: 5.028144, z: 2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4869324785003281205}
+  - {fileID: 4678947270874656559}
+  - {fileID: 940782396134090179}
   - {fileID: 2424928198750045631}
+  - {fileID: 7028377815880527579}
+  - {fileID: 1307033610214170851}
+  - {fileID: 1929527320673377734}
   - {fileID: 8120921075674857155}
   - {fileID: 1312036108478599973}
   m_Father: {fileID: 0}
@@ -167,6 +173,7 @@ GameObject:
   - component: {fileID: 8120921075674857155}
   - component: {fileID: 6539813760286090785}
   - component: {fileID: 5021958291831978171}
+  - component: {fileID: 3908040613585154994}
   m_Layer: 0
   m_Name: bed (1)
   m_TagString: Untagged
