@@ -5,25 +5,28 @@ using UnityEngine;
 public class Generator : Anomaly
 {
     public bool generatorFixed = false;
+    public GameObject endGameObject; // Reference to the EndGame GameObject
 
     private void Start()
     {
-        setSoundActive(true);
+        SetSoundActive(true);
     }
 
     public override void OnAnomalyFixed()
     {
-        setSoundActive(true);
+        SetSoundActive(true);
         generatorFixed = true;
+        // Enable the EndGame GameObject
+        endGameObject.SetActive(true);
     }
 
     public override void OnAnomalyTriggered()
     {
-
-        setSoundActive(false);
+        SetSoundActive(false);
+        // Disable the box collider
     }
 
-    private void setSoundActive(bool active)
+    private void SetSoundActive(bool active)
     {
         GetComponent<AudioSource>().enabled = active;
     }

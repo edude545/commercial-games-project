@@ -263,6 +263,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &1124813500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3299600192247910300, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+  m_PrefabInstance: {fileID: 1839054260}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee419ab6a2b343419c3c084fee29882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1447834370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,11 +350,20 @@ PrefabInstance:
       propertyPath: messageText
       value: 
       objectReference: {fileID: 53660872}
+    - target: {fileID: 8798848344086972969, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: endGameObject
+      value: 
+      objectReference: {fileID: 1540475659}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+--- !u!1 &1540475659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2101166565739527912, guid: c79beead12ee8b043a41b8c07554368d, type: 3}
+  m_PrefabInstance: {fileID: 8106638619108838882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1839054260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -387,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 1241478238328069402, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299600192247910300, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: levelToLoad
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3816429517551215674, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_IsActive
@@ -758,6 +782,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 16.56
       objectReference: {fileID: 0}
+    - target: {fileID: 7710314917394729396, guid: c79beead12ee8b043a41b8c07554368d, type: 3}
+      propertyPath: endGameScript
+      value: 
+      objectReference: {fileID: 1124813500}
     - target: {fileID: 8106638620360846004, guid: c79beead12ee8b043a41b8c07554368d, type: 3}
       propertyPath: m_RootOrder
       value: 2
