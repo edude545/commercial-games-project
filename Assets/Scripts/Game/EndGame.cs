@@ -18,4 +18,10 @@ public class EndGame : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
     }
+
+    // New method to reset the level completely
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

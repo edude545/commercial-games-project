@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
     public float maxFear = 100;
     public float currentFear;
     public HealthBar fear;
+    public EndGame endGameScript;
 
     float pmx = 0f;
     float pmy = 0f;
@@ -126,7 +127,10 @@ public class Player : MonoBehaviour {
         }
 
         TakeFearDamage(0.001f);
-
+        if (currentFear >= maxFear)
+        {
+            endGameScript.FadeToLevel(0);
+        }
     }
 
     // Try interaction raycast
@@ -140,12 +144,12 @@ public class Player : MonoBehaviour {
             Anomaly anom = hit.collider.GetComponent<Anomaly>();
             if (anom != null) {
                 anom.OnInteract();
-                HealFear(10);
+                HealFear(20);
             }
         } else {
             //Debug.Log("Did not hit anything");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            TakeFearDamage(20);
+            TakeFearDamage(10);
         }
     }
 

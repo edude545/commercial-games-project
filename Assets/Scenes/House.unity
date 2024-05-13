@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6648639739665570307, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: endGameScript
+      value: 
+      objectReference: {fileID: 1124813500}
     - target: {fileID: 6655117181015914445, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_text
       value: 
@@ -487,6 +491,14 @@ PrefabInstance:
     - target: {fileID: 7917491904950166836, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950729792588499847, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950729792588499847, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8933455028657314301, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_AnchoredPosition.y
