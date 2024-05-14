@@ -131,6 +131,11 @@ public class Player : MonoBehaviour {
         {
             endGameScript.FadeToLevel(0);
         }
+
+        if (currentFear <= 0)
+        {
+            currentFear = 0;
+        }
     }
 
     // Try interaction raycast
