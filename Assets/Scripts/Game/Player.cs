@@ -125,7 +125,7 @@ public class Player : MonoBehaviour {
             transform.position = startPos;
             rb.velocity = Vector3.zero;
         }
-
+       
         TakeFearDamage(0.001f);
         if (currentFear >= maxFear)
         {
@@ -139,20 +139,30 @@ public class Player : MonoBehaviour {
     }
 
     // Try interaction raycast
-    public void Interact() {
+    public void Interact()
+    {
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("Anomaly", "House");
-        //int layerMask = (1 << 9) & (1 << 10); // anomaly layer and house layer
-        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask)) {
+        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask))
+        {
             Debug.Log($"Hit object {hit.collider.name}");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Anomaly anom = hit.collider.GetComponent<Anomaly>();
-            if (anom != null) {
-                anom.OnInteract();
-                HealFear(20);
+            if (anom != null)
+            {
+                if (anom.IsTriggered)
+                {
+                    anom.OnInteract();
+                    HealFear(20);
+                }
+                else
+                {
+                    TakeFearDamage(10);
+                }
             }
-        } else {
-            //Debug.Log("Did not hit anything");
+        }
+        else
+        {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             TakeFearDamage(10);
         }

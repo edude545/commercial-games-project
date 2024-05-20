@@ -180,6 +180,7 @@ MonoBehaviour:
   maxFear: 100
   currentFear: 0
   fear: {fileID: 3020950228407803521}
+  endGameScript: {fileID: 0}
 --- !u!54 &7510998645265498547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -904,7 +905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e0dcac78fe02e24893ff37de317a0fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c71b43fac915e4d42a55a17ee2a1f4dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1080,10 +1081,10 @@ MonoBehaviour:
   image: {fileID: 710502322523917055}
   images:
   - {fileID: 21300000, guid: 33f396d3bd4801f4fae428fb6f9e7342, type: 3}
-  - {fileID: 21300000, guid: fe12bd98d98659c48a457cd9cce2a643, type: 3}
+  - {fileID: 21300000, guid: c71b43fac915e4d42a55a17ee2a1f4dd, type: 3}
   - {fileID: 21300000, guid: b9cc16b826fcdde469e31d0d710d4c6c, type: 3}
-  - {fileID: 21300000, guid: 7e0dcac78fe02e24893ff37de317a0fb, type: 3}
-  - {fileID: 21300000, guid: f16cbe8e3b8fa52489d2dd661aaaaf95, type: 3}
+  - {fileID: 21300000, guid: fa94f42630b243d42b65947b6683d3bb, type: 3}
+  - {fileID: 21300000, guid: 4aff509af1525fe479fa06a797469741, type: 3}
   - {fileID: 21300000, guid: b0958757b41e50c48adfb17f56595f36, type: 3}
   - {fileID: 21300000, guid: b356c21953ae0da41b87d60d5c590b1d, type: 3}
 --- !u!1 &5245671309995805152
