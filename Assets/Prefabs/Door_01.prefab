@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5486751904511400823}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4551198695272704882}
   - component: {fileID: 6252007950789854679}
   - component: {fileID: 4087420091306027636}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: doorknob (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7687309974822916314}
   - component: {fileID: 1048162929394835544}
   - component: {fileID: 4260473602325448397}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MovingPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 788523336318883365}
   - component: {fileID: 1010053824745961514}
   - component: {fileID: 5422212501028908107}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: doorjamb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 289833168263426756}
   - component: {fileID: 7149450735522245907}
   - component: {fileID: 3194350105240468131}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: doorknob (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 7437378008626012986}
   - component: {fileID: 117607359720769652}
   - component: {fileID: 4473889985403836749}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
