@@ -916,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 5237871982660969613, guid: 325d30e738f6d364fb794ef11aed6bbc, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 8150644279658729416}
     - target: {fileID: 8937129107521956241, guid: 325d30e738f6d364fb794ef11aed6bbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.58
@@ -2260,16 +2264,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 36b53f6f47dcc5c4ca0572e4e12564df, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.177
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 217
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 3.68
+  MaxDistance: 2.1266925
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2521,7 +2525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.44326314
+      value: 0.52834654
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalScale.y
@@ -2533,7 +2537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.469
+      value: -4.526
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2541,7 +2545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.29
+      value: 0.087
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2674,6 +2678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2527697042605846561}
     m_Modifications:
+    - target: {fileID: 1401333357203196739, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 8150644279658729416}
     - target: {fileID: 1401333357203196739, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: requiredAnomalyCount
       value: 3
@@ -3273,6 +3281,10 @@ PrefabInstance:
       propertyPath: AdjacentRooms.Array.data[4]
       value: 
       objectReference: {fileID: 3096112968997583217}
+    - target: {fileID: 4267007750461039718, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 8150644279658729416}
     - target: {fileID: 4267007750461039718, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
       propertyPath: requiredAnomalyCount
       value: 6
