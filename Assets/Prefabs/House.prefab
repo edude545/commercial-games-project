@@ -2723,16 +2723,28 @@ PrefabInstance:
       value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.18594
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6452852617810486709, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.196
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 7342745665100621156, guid: 7a27a74215235694b888323d518a8fb4, type: 3}
       propertyPath: House
