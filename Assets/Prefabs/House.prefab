@@ -916,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 8411226155072880019, guid: 325d30e738f6d364fb794ef11aed6bbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.507
+      objectReference: {fileID: 0}
     - target: {fileID: 8937129107521956241, guid: 325d30e738f6d364fb794ef11aed6bbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.58
