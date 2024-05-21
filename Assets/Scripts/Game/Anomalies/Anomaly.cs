@@ -27,6 +27,7 @@ public abstract class Anomaly : MonoBehaviour
         {
             IsTriggered = true;
             HasTriggered = true;
+            anomalyCount++;
             activeAnomalyCount++;
             Debug.Log($"Anomaly {name} triggered");
             OnAnomalyTriggered();
