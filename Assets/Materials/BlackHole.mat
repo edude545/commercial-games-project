@@ -100,6 +100,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AnimSpeed: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -112,20 +113,27 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FresnelAnimMagnitude: -0.1
+    - _FresnelAnimSpeed: 1
     - _Fresnel_Exponent: 1
     - _Fresnel_exponent: 2.37
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HoleSizeAnimMagnitude: 0.15
+    - _HoleSizeAnimSpeed: 1
     - _Hole_Size: 2
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Power: 3
+    - _PowerAnimMagnitude: 0.1
+    - _PowerAnimSpeed: 1
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ScrollSpeed: 0.1
+    - _Scroll_Speed: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
