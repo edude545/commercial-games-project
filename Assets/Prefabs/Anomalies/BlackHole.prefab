@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5127746727017366755}
   - component: {fileID: 8048776117236921375}
   - component: {fileID: 3926870691575252080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BlackHole
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
-  GrowthRate: 0.001
-  MaxSize: 0
+  GrowthRate: 0.0012
+  MaxSize: 5
   ExpandX: 1
   ExpandY: 1
   ExpandZ: 1
