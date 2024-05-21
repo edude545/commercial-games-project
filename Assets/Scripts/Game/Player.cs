@@ -39,7 +39,8 @@ public class Player : MonoBehaviour {
     public bool ControlsLocked { get; private set; } = false;
 
     public static Player Instance;
-  
+
+
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -50,8 +51,9 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         Cursor.lockState = CursorLockMode.Locked;
-        currentFear = 0;
+        currentFear = 0;  // Ensure currentFear starts at 0
         fear.SetMaxFear(maxFear);
+        fear.SetFear(currentFear);
     }
 
     private void Update() {
@@ -125,8 +127,11 @@ public class Player : MonoBehaviour {
             transform.position = startPos;
             rb.velocity = Vector3.zero;
         }
-       
-        TakeFearDamage(0.001f);
+
+        if (Anomaly.activeAnomalyCount > 0)
+        {
+            TakeFearDamage(0.001f);
+        }
         if (currentFear >= maxFear)
         {
             endGameScript.FadeToLevel(0);

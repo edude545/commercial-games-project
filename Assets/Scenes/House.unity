@@ -274,6 +274,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee419ab6a2b343419c3c084fee29882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1347047711 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+  m_PrefabInstance: {fileID: 1447834370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1347047712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8150644279658729416, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+  m_PrefabInstance: {fileID: 1447834370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83e247fc2007ca419071b5a50189abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1447834370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,6 +350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3408025964075752595, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4499712515330963021, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: maxVolume
       value: 0.4
@@ -355,6 +375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 124037935}
     - target: {fileID: 5438722315101278188, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 1347047712}
+    - target: {fileID: 5438722315101278188, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: messageText
       value: 
       objectReference: {fileID: 53660872}
@@ -362,6 +386,10 @@ PrefabInstance:
       propertyPath: taskText
       value: 
       objectReference: {fileID: 124037935}
+    - target: {fileID: 6494885133842011347, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 1347047712}
     - target: {fileID: 6494885133842011347, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: messageText
       value: 
@@ -370,6 +398,10 @@ PrefabInstance:
       propertyPath: taskText
       value: 
       objectReference: {fileID: 124037935}
+    - target: {fileID: 6757271318253460376, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 1347047712}
     - target: {fileID: 6757271318253460376, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: messageText
       value: 
@@ -385,6 +417,38 @@ PrefabInstance:
     - target: {fileID: 6844167868653167166, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: GrowthRate
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883552903632323011, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150644279658729416, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: endGameObject
+      value: 
+      objectReference: {fileID: 1540475659}
+    - target: {fileID: 8150644279658729416, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: generatorAudioSource
+      value: 
+      objectReference: {fileID: 1347047711}
+    - target: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: Priority
+      value: 217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_Volume
+      value: 0.177
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: MaxDistance
+      value: 2.1266925
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159694160452144301, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8798848344086972969, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: endGameObject

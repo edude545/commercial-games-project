@@ -20,22 +20,26 @@ public abstract class Anomaly : MonoBehaviour
     public bool HasTriggered = false;
 
     public static int anomalyCount = 0;
+    public static int activeAnomalyCount = 0;
 
     public virtual void WhileTriggerConditionsMet() {
-        if (Random.Range(0f,1f) < TriggerChancePerFrame) {
+        if (Random.Range(0f, 1f) < TriggerChancePerFrame)
+        {
             IsTriggered = true;
             HasTriggered = true;
+            activeAnomalyCount++;
             Debug.Log($"Anomaly {name} triggered");
             OnAnomalyTriggered();
         }
     }
 
     public virtual void OnInteract() {
-        if (IsTriggered) {
+        if (IsTriggered)
+        {
             IsTriggered = false;
+            activeAnomalyCount--;
             Blackout.FadeToBlack(OnAnomalyFixed);
-            anomalyCount++;
-            Debug.Log($"Anomalies solved:{anomalyCount}");
+            Debug.Log($"Anomalies solved:{activeAnomalyCount}");
         }
     }
 
