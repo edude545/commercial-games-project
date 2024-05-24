@@ -9,6 +9,7 @@ TagManager:
   - book
   - Anomaly
   - block
+  - Door
   layers:
   - Default
   - TransparentFX

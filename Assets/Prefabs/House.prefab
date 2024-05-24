@@ -1914,6 +1914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrontDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3143819090293176706, guid: 2ede73b6a4f0e974d911e3923c966e6c, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 4260473602325448397, guid: 2ede73b6a4f0e974d911e3923c966e6c, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -2.2185342
@@ -2777,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.44326314
+      value: 0.52260727
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalScale.y
@@ -2797,7 +2801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.29
+      value: 0.1345
       objectReference: {fileID: 0}
     - target: {fileID: 7612958741810513969, guid: 5202426c640062e459827b8be864cab8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3072,7 +3076,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d4105e170fe457c429b768db0fa267bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.295
+  m_Volume: 0.206
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3635,7 +3639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5647160860129684518, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6539791015697966952, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4030,6 +4034,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6750570729591355946, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b4f1ff4f75f1f34a803af1e5c1a1aa6, type: 2}
     - target: {fileID: -6685183821200511607, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4066,6 +4074,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4249928120612920601, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b4f1ff4f75f1f34a803af1e5c1a1aa6, type: 2}
     - target: {fileID: -3985542965352905258, guid: 6aa581dfd0a02234baf65fe7e82be9fe, type: 3}
       propertyPath: m_Layer
       value: 10

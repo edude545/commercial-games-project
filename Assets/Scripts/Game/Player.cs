@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
     public HealthBar fear;
     public EndGame endGameScript;
 
+  
+
     float pmx = 0f;
     float pmy = 0f;
     float mx = 0f;
@@ -47,6 +49,7 @@ public class Player : MonoBehaviour {
         //col = GetComponent<Collider>();
         startPos = transform.position;
         Instance = this;
+      
     }
 
     private void Start() {
@@ -128,13 +131,24 @@ public class Player : MonoBehaviour {
             rb.velocity = Vector3.zero;
         }
 
-        if (Anomaly.activeAnomalyCount > 0)
+        if (Anomaly.activeAnomalyCount > 6)
+        {
+            TakeFearDamage(0.01f);
+        }
+        else if (Anomaly.activeAnomalyCount > 3)
+        {
+            TakeFearDamage(0.005f);
+        }
+        else if (Anomaly.activeAnomalyCount > 0)
         {
             TakeFearDamage(0.001f);
         }
+
         if (currentFear >= maxFear)
         {
+
             endGameScript.FadeToLevel(0);
+            Anomaly.activeAnomalyCount = 0;
         }
 
         if (currentFear <= 0)
@@ -207,4 +221,6 @@ public class Player : MonoBehaviour {
         fear.SetFear(currentFear);
     }
 
+
+    
 }

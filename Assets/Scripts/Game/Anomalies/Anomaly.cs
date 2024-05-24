@@ -27,7 +27,6 @@ public abstract class Anomaly : MonoBehaviour
         {
             IsTriggered = true;
             HasTriggered = true;
-            anomalyCount++;
             activeAnomalyCount++;
             Debug.Log($"Anomaly {name} triggered");
             OnAnomalyTriggered();
@@ -37,6 +36,7 @@ public abstract class Anomaly : MonoBehaviour
     public virtual void OnInteract() {
         if (IsTriggered)
         {
+            anomalyCount++;
             IsTriggered = false;
             activeAnomalyCount--;
             Blackout.FadeToBlack(OnAnomalyFixed);

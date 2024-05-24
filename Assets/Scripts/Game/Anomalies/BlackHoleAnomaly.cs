@@ -16,12 +16,23 @@ public class BlackHoleAnomaly : Anomaly {
     public bool IsExpanding { get; private set; }
     public bool HasReachedMaxSize { get; private set; }
 
+    private AudioSource audioSource;
+
     private void Start() {
         initialScale = transform.localScale;
         mat = GetComponent<MeshRenderer>().material;
         GetComponent<MeshRenderer>().enabled = false;
         IsExpanding = false;
         HasReachedMaxSize = false;
+
+        // Get AudioSource component on the same GameObject
+        audioSource = GetComponent<AudioSource>();
+        // Ensure that AudioSource is enabled
+        if (audioSource == null)
+        {
+            // Add AudioSource component if not already present
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void Update() {
@@ -43,11 +54,21 @@ public class BlackHoleAnomaly : Anomaly {
         GetComponent<MeshRenderer>().enabled = false;
         IsExpanding = false;
         HasReachedMaxSize = false;
+        if (audioSource != null && audioSource.isPlaying && audioSource.loop)
+        {
+            audioSource.Stop();
+        }
     }
 
     public override void OnAnomalyTriggered() {
         GetComponent<MeshRenderer>().enabled = true;
         IsExpanding = true;
+
+        // Play sound from the AudioSource attached to the same GameObject
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
     }
 
 }

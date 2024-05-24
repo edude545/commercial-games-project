@@ -461,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3408025964075752595, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4499712515330963021, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: maxVolume
@@ -626,6 +626,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1241478238328069402, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241478238328069402, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1413071e30925844838bfa78fafcae8, type: 3}
+    - target: {fileID: 1241478238328069402, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3299600192247910300, guid: 6106823a878fe9742838b4e115d28725, type: 3}
@@ -652,6 +660,10 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6648639739665570307, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: doorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e1413071e30925844838bfa78fafcae8, type: 3}
     - target: {fileID: 6648639739665570307, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: endGameScript
       value: 
@@ -724,7 +736,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 15.519531
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1241478238328069402, guid: 6106823a878fe9742838b4e115d28725, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

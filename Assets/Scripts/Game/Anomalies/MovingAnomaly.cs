@@ -44,5 +44,10 @@ public class MovingAnomaly : Anomaly
     {
         transform.position = initialPosition;
         transform.rotation = initialRotation;
+        // Stop the audio if it is set to loop
+        if (audioSource != null && audioSource.isPlaying && audioSource.loop)
+        {
+            audioSource.Stop();
+        }
     }
 }
