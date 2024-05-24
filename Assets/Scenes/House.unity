@@ -403,6 +403,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 891430602098626558, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891430602098626558, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      propertyPath: m_Volume
+      value: 0.383
+      objectReference: {fileID: 0}
     - target: {fileID: 1960078525465236885, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -947,6 +955,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 2014306296}
+    - target: {fileID: 939508131179152803, guid: c79beead12ee8b043a41b8c07554368d, type: 3}
+      propertyPath: m_Volume
+      value: 0.611
+      objectReference: {fileID: 0}
     - target: {fileID: 2431336303134504274, guid: c79beead12ee8b043a41b8c07554368d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -227
