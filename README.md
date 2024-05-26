@@ -16,3 +16,6 @@ https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-s
 
 Retro PSX style tree pack by Elegant Crow, CC0 License
 https://elegantcrow.itch.io/psx-retro-style-tree-pack
+
+Exploration Objects by Elbolillo, CC-Attribution License
+https://sketchfab.com/3d-models/exploration-objects-fa99705c1afa4e7da5186938709f0231
