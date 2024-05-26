@@ -1,6 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4623232714131382774
+--- !u!114 &-384239405309030471
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c3b93637eebf348b7d4905befbe49e, type: 3}
+  m_Name: VHSEffectComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+  noiseColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.6509434, g: 0.26713246, b: 0.26713246, a: 1}
+    hdr: 0
+  scanlinesHeight:
+    m_OverrideState: 1
+    m_Value: 0.8
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: VHSEffectHouse
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -384239405309030471}
+  - {fileID: 417959498455074352}
+  - {fileID: 8760599185407177006}
+--- !u!114 &417959498455074352
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,46 +64,7 @@ MonoBehaviour:
   ditherScale:
     m_OverrideState: 1
     m_Value: 2
---- !u!114 &-2378802256130869379
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c3b93637eebf348b7d4905befbe49e, type: 3}
-  m_Name: VHSEffectComponent
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0
-  noiseColor:
-    m_OverrideState: 1
-    m_Value: {r: 0.6509434, g: 0.26713246, b: 0.26713246, a: 1}
-    hdr: 0
-  scanlinesHeight:
-    m_OverrideState: 1
-    m_Value: 0.87
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: -2378802256130869379}
-  - {fileID: -4623232714131382774}
-  - {fileID: 1044013184844223265}
---- !u!114 &1044013184844223265
+--- !u!114 &8760599185407177006
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

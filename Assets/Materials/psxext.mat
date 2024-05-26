@@ -105,7 +105,7 @@ Material:
     - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 1
-    - Vector1_21C41D02: 32
+    - Vector1_21C41D02: 64
     - Vector1_6F288C5B: 0
     - Vector1_B2CC132F: 64
     - Vector1_B9994903: 11
@@ -115,6 +115,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorPrecision: 16
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -124,6 +125,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _IsLit: 1
+    - _IsSpecular: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -135,6 +138,11 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _TextureResolution: 256
+    - _UseColorPrecision: 1
+    - _UsePixelation: 1
+    - _UseVertexJitter: 1
+    - _VertexResolution: 16
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
