@@ -4,15 +4,21 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 // Written by Lyra
 
 public class Player : MonoBehaviour {
 
+    public static Player Instance;
+
     public Camera Camera;
     [HideInInspector] public GameObject LookTarget;
+    public GameObject Tools;
     public GameObject Flashlight;
-
+    public GameObject AnomalyFixer;
+    public float ToolsTurnSpeed = 0.9f;
     public float Speed = 0.1f;
     public float JumpPower = 60f;
     public float Sensitivity = 3f;
@@ -26,12 +32,20 @@ public class Player : MonoBehaviour {
     public HealthBar fear;
     public EndGame endGameScript;
 
-  
+    public AudioClip FlashlightOn;
+    public AudioClip FlashlightOff;
 
     float pmx = 0f;
     float pmy = 0f;
     float mx = 0f;
     float my = 0f;
+
+    bool scanning = false;
+    float scanProgress = 0f;
+    public float ScanTime = 20f;
+    public UnityEngine.UI.Image ScanProgressBar;
+    public AudioClip AnomalyFixerScanLoop;
+    public AudioClip AnomalyFixerFail;
 
     Vector3 startPos;
     Rigidbody rb;
@@ -39,8 +53,6 @@ public class Player : MonoBehaviour {
     bool raycastedThisFrame = false;
 
     public bool ControlsLocked { get; private set; } = false;
-
-    public static Player Instance;
 
 
 
@@ -53,15 +65,29 @@ public class Player : MonoBehaviour {
     }
 
     private void Start() {
-        Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         currentFear = 0;  // Ensure currentFear starts at 0
         fear.SetMaxFear(maxFear);
         fear.SetFear(currentFear);
     }
 
+
+
     private void Update() {
         raycastedThisFrame = false;
         Vector3 dv = new Vector3(0, Noclip ? 0 : Gravity + rb.velocity.y, 0);
+        if (scanning) {
+            scanProgress += Time.deltaTime;
+            ScanProgressBar.fillAmount = scanProgress / ScanTime;
+            if (scanProgress >= ScanTime) {
+                AnomalyFixer.GetComponent<AudioSource>().Stop();
+                scanning = false;
+                scanProgress = 0f;
+                Interact();
+            }
+        }
+
+        Tools.transform.rotation = Quaternion.Slerp(Tools.transform.rotation, Camera.transform.rotation, ToolsTurnSpeed);
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
@@ -76,10 +102,28 @@ public class Player : MonoBehaviour {
             ScreenCapture.CaptureScreenshot("screenshot");
         }
         if (Input.GetMouseButtonDown(0)) {
-            Interact();
+            scanning = true;
+            scanProgress = 0f;
+            ScanProgressBar.gameObject.SetActive(true);
+            AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
+            source.loop = true;
+            source.clip = AnomalyFixerScanLoop;
+            source.Play();
+        }
+        if (Input.GetMouseButtonUp(0)) {
+            if (true) {
+                scanning = false;
+                scanProgress = 0f;
+                ScanProgressBar.gameObject.SetActive(false);
+                AnomalyFixer.GetComponent<AudioSource>().Stop();
+            }
         }
         if (Input.GetKeyDown(KeyCode.F)) {
-            Flashlight.SetActive(!Flashlight.activeSelf);
+            GameObject f = Flashlight.transform.GetChild(0).gameObject;
+            f.SetActive(!f.activeSelf);
+            AudioSource source = Flashlight.GetComponent<AudioSource>();
+            source.clip = Flashlight.activeSelf ? FlashlightOn : FlashlightOff;
+            source.Play();
         }
         if (!GetControlsLocked()) {
             if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -157,31 +201,32 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void OnBlackoutEnd() {
+    }
+
     // Try interaction raycast
-    public void Interact()
-    {
+    public void Interact() {
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("Anomaly", "House");
-        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask))
-        {
+        ScanProgressBar.gameObject.SetActive(false);
+        if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask)) {
             Debug.Log($"Hit object {hit.collider.name}");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Anomaly anom = hit.collider.GetComponent<Anomaly>();
-            if (anom != null)
-            {
-                if (anom.IsTriggered)
-                {
+            if (anom != null) {
+                if (anom.IsTriggered) {
                     anom.OnInteract();
                     HealFear(20);
                 }
-                else
-                {
+                else {
                     TakeFearDamage(10);
                 }
             }
-        }
-        else
-        {
+        } else {
+            AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
+            source.loop = false;
+            source.clip = AnomalyFixerFail;
+            source.Play();
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             TakeFearDamage(10);
         }
@@ -209,14 +254,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void TakeFearDamage(float damage)
-    {
+    void TakeFearDamage(float damage) {
         currentFear += damage;
         fear.SetFear(currentFear);
     }
 
-    void HealFear(float heal)
-    {
+    void HealFear(float heal) {
         currentFear -= heal;
         fear.SetFear(currentFear);
     }

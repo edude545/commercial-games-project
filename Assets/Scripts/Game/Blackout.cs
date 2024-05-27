@@ -26,6 +26,7 @@ public class Blackout : MonoBehaviour
     float interval;
     float fadeInterval;
     Action midFadeEvent;
+    Action endFadeEvent;
     public TMP_Text Label;
 
     public float Speed = 1f;
@@ -47,7 +48,7 @@ public class Blackout : MonoBehaviour
                 time = 0f;
                 state = State.HOLD;
                 interval = CharacterInterval;
-                midFadeEvent.Invoke();
+                if (midFadeEvent != null) { midFadeEvent.Invoke(); }
             }
         } else if (state == State.HOLD) {
             if (time >= interval) {
@@ -67,12 +68,14 @@ public class Blackout : MonoBehaviour
                 state = State.HOLD;
                 gameObject.SetActive(false);
                 Player.Instance.UnlockControls();
+                if (endFadeEvent != null) { endFadeEvent.Invoke(); }
             }
         }
     }
 
-    public static void FadeToBlack(Action _midFadeEvent) {
+    public static void FadeToBlack(Action _midFadeEvent, Action _endFadeEvent) {
         Instance.midFadeEvent = _midFadeEvent;
+        Instance.endFadeEvent = _endFadeEvent;
         Instance.state = State.FADE_OUT;
         Instance.time = 0f;
         Instance.interval = Instance.FadeInterval;

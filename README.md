@@ -19,3 +19,5 @@ https://www.youtube.com/watch?v=5l2D6xtZIgk&t=1628s
 
 Retro PSX style tree pack by Elegant Crow, CC0 License
 https://elegantcrow.itch.io/psx-retro-style-tree-pack
+
+"Exploration Objects" (https://skfb.ly/oSXMq) by Elbolillo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

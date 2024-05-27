@@ -39,7 +39,7 @@ public abstract class Anomaly : MonoBehaviour
             anomalyCount++;
             IsTriggered = false;
             activeAnomalyCount--;
-            Blackout.FadeToBlack(OnAnomalyFixed);
+            Blackout.FadeToBlack(OnAnomalyFixed, Player.Instance.OnBlackoutEnd);
             Debug.Log($"Anomalies solved:{activeAnomalyCount}");
         }
     }
