@@ -175,13 +175,13 @@ public class Player : MonoBehaviour {
             rb.velocity = Vector3.zero;
         }
 
-        if (Anomaly.activeAnomalyCount > 6)
+        /*if (Anomaly.activeAnomalyCount > 6)
         {
             TakeFearDamage(0.01f);
-        }
-        else if (Anomaly.activeAnomalyCount > 3)
+        }*/
+        else if (Anomaly.activeAnomalyCount > 5)
         {
-            TakeFearDamage(0.005f);
+            TakeFearDamage(0.008f);
         }
         else if (Anomaly.activeAnomalyCount > 0)
         {
