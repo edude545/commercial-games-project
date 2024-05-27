@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   intensity:
-    m_OverrideState: 0
-    m_Value: 0.461
+    m_OverrideState: 1
+    m_Value: 0.468
   noiseColor:
     m_OverrideState: 0
     m_Value: {r: 0.6509434, g: 0.26713246, b: 0.26713246, a: 1}

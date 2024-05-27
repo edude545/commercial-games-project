@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - ScanLinesHeight: 0.8
     - StaticAmount: 0
-    - _Intensity: 0.2
+    - _Intensity: 0.468
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScanlineIntensity: 0
