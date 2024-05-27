@@ -3819,9 +3819,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2527697042605846561}
     m_Modifications:
+    - target: {fileID: 1461201267149003555, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.81
+      objectReference: {fileID: 0}
     - target: {fileID: 1817906687915686689, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
       propertyPath: m_Name
       value: 1FHallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913351511695636927, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: m_Size.x
+      value: 10.177011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913351511695636927, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: m_Size.z
+      value: 2.9887283
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913351511695636927, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: m_Center.x
+      value: -1.3121794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913351511695636927, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
+      propertyPath: m_Center.z
+      value: -0.741648
       objectReference: {fileID: 0}
     - target: {fileID: 1988927435244038151, guid: 40331f9b9aac3a147b2acfd288308731, type: 3}
       propertyPath: House
