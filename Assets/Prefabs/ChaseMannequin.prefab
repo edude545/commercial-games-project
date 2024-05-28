@@ -80,15 +80,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc1ffd0199495d48b0174d1202f96ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 0}
   Chasing: 0
   Posing: 1
   KillDistance: 2.7
-  JumpscareTime: 0
+  JumpscareTime: 2.5
   PoseCount: 4
   Animator: {fileID: 1660723663954849735}
   Head: {fileID: 3957124548237679427}
-  PlayerCameraTurnTime: 0.5
+  PlayerCameraTurnTime: 0.1
 --- !u!195 &4422751567673273187
 NavMeshAgent:
   m_ObjectHideFlags: 0

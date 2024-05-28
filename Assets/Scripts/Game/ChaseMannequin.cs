@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class ChaseMannequin : MonoBehaviour
 {
 
-    public Transform goal;
-
     public bool Chasing = false;
     public bool Posing = true;
     public float KillDistance;
@@ -30,7 +28,6 @@ public class ChaseMannequin : MonoBehaviour
     public Transform Head;
 
     public void StartChaseSequence() {
-        goal = Player.Instance.transform;
         playerSpawnPoint = Player.Instance.transform.position;
         spawnPoint = transform.position;
         Chasing = true;
@@ -63,7 +60,7 @@ public class ChaseMannequin : MonoBehaviour
 
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Player.Instance.Camera);
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
-
+        
         if (GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
             inView = true;
             ai.speed = 0f;
@@ -75,7 +72,6 @@ public class ChaseMannequin : MonoBehaviour
             }
             inView = false;
             ai.speed = Chasing ? moveSpeed : 0f;
-            dest = Player.Instance.transform.position;
 
             /*RaycastHit hit;
             if (Physics.Raycast(transform.position, (dest - transform.position).normalized, out hit, Mathf.Infinity)) {
@@ -84,7 +80,7 @@ public class ChaseMannequin : MonoBehaviour
                 }
             }*/
 
-            ai.destination = dest;
+            ai.SetDestination(Player.Instance.transform.position);
 
             if (Chasing && distance <= KillDistance) {
                 Debug.Log("Mannequin reached player, starting kill sequence");
