@@ -46,7 +46,7 @@ public class ChaseMannequin : MonoBehaviour
 
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.RightBracket)) {
+        /*if (Input.GetKeyDown(KeyCode.RightBracket)) {
             Generator.Instance.SetAllLights(false);
         }
         if (Input.GetKeyDown(KeyCode.LeftBracket)) {
@@ -54,7 +54,7 @@ public class ChaseMannequin : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             StartChaseSequence();
-        }
+        }*/
 
         if (inKillSequence) {
             return;
