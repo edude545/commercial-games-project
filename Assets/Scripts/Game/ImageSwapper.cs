@@ -23,6 +23,7 @@ public class ImageSwapper : MonoBehaviour
             if (isImageVisible)
             {
                 image.sprite = images[currentIndex];
+                image.SetNativeSize();
             }
         }
 
@@ -41,6 +42,7 @@ public class ImageSwapper : MonoBehaviour
                 }
                 // Update the displayed image
                 image.sprite = images[currentIndex];
+                image.SetNativeSize();
             }
 
             // Check for right arrow key press to go to the next image
@@ -55,6 +57,7 @@ public class ImageSwapper : MonoBehaviour
                 }
                 // Update the displayed image
                 image.sprite = images[currentIndex];
+                image.SetNativeSize();
             }
         }
     }
