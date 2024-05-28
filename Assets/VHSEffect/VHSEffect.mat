@@ -41,9 +41,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - ScanLinesHeight: 0.8
+    - ScanLinesHeight: 0.16000001
     - StaticAmount: 0
-    - _Intensity: 0.468
+    - _Intensity: 0.0936
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScanlineIntensity: 0

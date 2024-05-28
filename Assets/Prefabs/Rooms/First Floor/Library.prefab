@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 11.51, y: 1, z: 1}
-  m_Center: {x: -8.75, y: 0, z: 0}
+  m_Size: {x: 1.4953138, y: 1.7567921, z: 1}
+  m_Center: {x: -7.4849076, y: -0.37839526, z: 0}
 --- !u!114 &8220752653521662029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 3453274760864365465}
-  enterCountThreshold: 1
+  enterCountThreshold: 2
 --- !u!1 &2505647289589873363
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,8 +177,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.0223413, y: 4.7380314, z: 7.3034863}
-  m_Center: {x: -1.9674532, y: 2.807187, z: -1.422233}
+  m_Size: {x: 5.0223413, y: 4.7380314, z: 8.348671}
+  m_Center: {x: -1.9674532, y: 2.807187, z: -0.89964116}
 --- !u!1 &3453274760864365465
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 3453274760864365465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.53, y: 0.666, z: 3.91}
+  m_LocalPosition: {x: -7.56, y: -1.182, z: 8.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +223,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 716f6345902fc184e886bffc105f6f92, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.519
+  m_Volume: 0.189
   m_Pitch: 1
   Loop: 0
   Mute: 0

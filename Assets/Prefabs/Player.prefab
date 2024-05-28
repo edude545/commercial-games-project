@@ -3015,6 +3015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeInterval: 1
-  CharacterInterval: 0.06
+  CharacterInterval: 0.08
   Label: {fileID: 2607617137653719675}
   Speed: 1

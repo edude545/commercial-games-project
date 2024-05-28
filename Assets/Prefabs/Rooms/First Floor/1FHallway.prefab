@@ -73,8 +73,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.432925, y: 4.7380314, z: 1.5900968}
-  m_Center: {x: -1.1842223, y: 2.807187, z: -0.04233295}
+  m_Size: {x: 10.177011, y: 4.7380314, z: 2.9887283}
+  m_Center: {x: -1.3121794, y: 2.807187, z: -0.741648}
 --- !u!1 &8234365956474895684
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 8234365956474895684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.58, y: 0.993, z: -1.362}
+  m_LocalPosition: {x: -5.58, y: 0.993, z: -2.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78612cbde9de3f849b94ea0053bb3305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAnomalyCount: 10
+  requiredAnomalyCount: 6
   messageText: {fileID: 0}
   taskText: {fileID: 0}
   messageDuration: 2

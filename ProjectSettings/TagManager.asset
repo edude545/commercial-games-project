@@ -10,6 +10,7 @@ TagManager:
   - Anomaly
   - block
   - Door
+  - Light
   layers:
   - Default
   - TransparentFX

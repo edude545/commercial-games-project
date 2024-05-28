@@ -53,6 +53,7 @@ public class Player : MonoBehaviour {
     bool raycastedThisFrame = false;
 
     public bool ControlsLocked { get; private set; } = false;
+    public bool MouseLookLocked { get; private set; } = false;
 
 
 
@@ -158,11 +159,13 @@ public class Player : MonoBehaviour {
             mx += Input.GetAxis("Mouse X") * Sensitivity;
             my = Mathf.Clamp(my + Input.GetAxis("Mouse Y") * Sensitivity, -90, 90);
 
-            if (mx != pmx || my != pmy) { // When mouse is moved:
-                pmx = mx; pmy = my;
-                Camera.transform.rotation = Quaternion.Euler(-my, mx, 0);
-                if (!raycastedThisFrame) {
-                    DoRaycast();
+            if (!MouseLookLocked) {
+                if (mx != pmx || my != pmy) { // When mouse is moved:
+                    pmx = mx; pmy = my;
+                    Camera.transform.rotation = Quaternion.Euler(-my, mx, 0);
+                    if (!raycastedThisFrame) {
+                        DoRaycast();
+                    }
                 }
             }
         }
@@ -242,6 +245,18 @@ public class Player : MonoBehaviour {
 
     public void UnlockControls() {
         ControlsLocked = false;
+    }
+
+    public bool GetMouseLookLocked() {
+        return MouseLookLocked;
+    }
+
+    public void LockMouseLook() {
+        MouseLookLocked = true;
+    }
+
+    public void UnlockMouseLook() {
+        MouseLookLocked = false;
     }
 
     protected void DoRaycast() {
