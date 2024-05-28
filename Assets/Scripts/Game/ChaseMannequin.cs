@@ -52,9 +52,10 @@ public class ChaseMannequin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftBracket)) {
             Generator.Instance.SetAllLights(true);
         }
+        */
         if (Input.GetKeyDown(KeyCode.K)) {
             StartChaseSequence();
-        }*/
+        }
 
         if (inKillSequence) {
             return;

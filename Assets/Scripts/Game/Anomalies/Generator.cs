@@ -8,7 +8,9 @@ public class Generator : Anomaly
 
     public bool generatorFixed = false;
     public GameObject endGameObject; // Reference to the EndGame GameObject
+    public Mannequin NormalMannequin;
     public ChaseMannequin ChaseMannequin;
+    public AudioSource MannequinActivationSound;
 
     private void Awake() {
         Instance = this;
@@ -18,6 +20,8 @@ public class Generator : Anomaly
     {
         SetSoundActive(true);
         SetAllLights(false);
+        NormalMannequin.gameObject.SetActive(true);
+        ChaseMannequin.gameObject.SetActive(false);
     }
 
     public override void OnAnomalyFixed()
@@ -27,6 +31,9 @@ public class Generator : Anomaly
         // Enable the EndGame GameObject
         SetAllLights(true);
         endGameObject.SetActive(true);
+        NormalMannequin.gameObject.SetActive(false);
+        ChaseMannequin.gameObject.SetActive(true);
+        MannequinActivationSound.Play();
         ChaseMannequin.StartChaseSequence();
     }
 
