@@ -179,7 +179,7 @@ MonoBehaviour:
   Gravity: -0.5
   Noclip: 0
   ScrollSensitivity: 1
-  InteractionDistance: 2.2
+  InteractionDistance: 4
   maxFear: 100
   currentFear: 0
   fear: {fileID: 3020950228407803521}
