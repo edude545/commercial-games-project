@@ -40,6 +40,7 @@ Transform:
   - {fileID: 1104625044135188119}
   - {fileID: 2730889717734883634}
   - {fileID: 2819193952726766146}
+  - {fileID: 2710334565530127821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &556672641922465413
@@ -80,6 +81,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.4494805, y: 2.502515, z: 9.207457}
   m_Center: {x: -0.17944361, y: 1.7288125, z: -4.410658}
+--- !u!1 &3231450168994771639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2710334565530127821}
+  - component: {fileID: 3267266302528510209}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2710334565530127821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231450168994771639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.71, y: 0, z: -4.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5107545287971271146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3267266302528510209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231450168994771639}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8960056, y: 1.5666656, z: 3.0075321}
+  m_Center: {x: 0.44800168, y: 1.1846352, z: 0.5552271}
 --- !u!1001 &315997140792077881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,6 +476,9 @@ MonoBehaviour:
   HasTriggered: 0
   generatorFixed: 0
   endGameObject: {fileID: 0}
+  NormalMannequin: {fileID: 0}
+  ChaseMannequin: {fileID: 0}
+  MannequinActivationSound: {fileID: 0}
 --- !u!82 &8570235488569214741
 AudioSource:
   m_ObjectHideFlags: 0

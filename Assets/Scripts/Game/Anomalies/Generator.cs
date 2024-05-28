@@ -14,6 +14,7 @@ public class Generator : Anomaly
 
     private void Awake() {
         Instance = this;
+        SetAllLights(false);
     }
 
     private void Start()

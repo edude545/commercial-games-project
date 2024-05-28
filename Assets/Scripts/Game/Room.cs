@@ -65,7 +65,7 @@ public class Room : MonoBehaviour
     public void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             House.OnPlayerEnteredRoom(this);
-            DebugUI.UpdateRoomLabel(House);
+           // DebugUI.UpdateRoomLabel(House);
             foreach (Anomaly anom in anomalies) {
                 if (!anom.enabled) {
                     Debug.Log($"Saw {anom.name} for the first time");
