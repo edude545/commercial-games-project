@@ -176,7 +176,7 @@ MonoBehaviour:
   Speed: 3
   JumpPower: 0
   Sensitivity: 3
-  Gravity: -0.1
+  Gravity: -0.5
   Noclip: 0
   ScrollSensitivity: 1
   InteractionDistance: 2.2

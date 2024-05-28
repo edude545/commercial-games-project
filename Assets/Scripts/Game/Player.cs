@@ -88,6 +88,15 @@ public class Player : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Anomaly.anomalyCount++;
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Speed += 1;
+        }
+
         Tools.transform.rotation = Quaternion.Slerp(Tools.transform.rotation, Camera.transform.rotation, ToolsTurnSpeed);
 
         if (Input.GetKeyDown(KeyCode.Escape)) {

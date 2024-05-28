@@ -12,7 +12,7 @@ public class ChaseMannequin : MonoBehaviour
     public float KillDistance;
 
     private NavMeshAgent ai;
-    private float moveSpeed;
+    //private float moveSpeed;
     private Vector3 dest;
 
     public float JumpscareTime;
@@ -28,6 +28,7 @@ public class ChaseMannequin : MonoBehaviour
     public Transform Head;
 
     public void StartChaseSequence() {
+        ai = GetComponent<NavMeshAgent>();
         playerSpawnPoint = Player.Instance.transform.position;
         spawnPoint = transform.position;
         Chasing = true;
@@ -38,7 +39,7 @@ public class ChaseMannequin : MonoBehaviour
 
     public void Start() {
         ai = GetComponent<NavMeshAgent>();
-        moveSpeed = ai.speed;
+        //moveSpeed = ai.speed;
     }
 
     void Update() {
@@ -54,7 +55,7 @@ public class ChaseMannequin : MonoBehaviour
             StartChaseSequence();
         }
 
-        if (inKillSequence) {
+        if (inKillSequence || !Chasing) {
             return;
         }
 
@@ -62,16 +63,21 @@ public class ChaseMannequin : MonoBehaviour
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
         
         if (GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
+            if (!inView)
+            {
+                ai.isStopped = true;
+            }
             inView = true;
-            ai.speed = 0f;
-            ai.SetDestination(transform.position);
+            //ai.speed = 0f;
+            //ai.destination = transform.position;
         } else {
             if (inView) {
+                ai.isStopped = false;
                 int i = Random.Range(1, PoseCount);
                 Animator.SetInteger("PoseID", i);
+                //ai.speed = moveSpeed;
             }
             inView = false;
-            ai.speed = Chasing ? moveSpeed : 0f;
 
             /*RaycastHit hit;
             if (Physics.Raycast(transform.position, (dest - transform.position).normalized, out hit, Mathf.Infinity)) {
@@ -80,7 +86,7 @@ public class ChaseMannequin : MonoBehaviour
                 }
             }*/
 
-            ai.SetDestination(Player.Instance.transform.position);
+            ai.destination = Player.Instance.transform.position;
 
             if (Chasing && distance <= KillDistance) {
                 Debug.Log("Mannequin reached player, starting kill sequence");
