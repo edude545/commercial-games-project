@@ -602,6 +602,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2527697042605846561}
     m_Modifications:
+    - target: {fileID: 1748299622868712443, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2134084014668818884, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
       propertyPath: House
       value: 
@@ -653,6 +657,18 @@ PrefabInstance:
     - target: {fileID: 6684992952057767595, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881710136044083049, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881710136044083049, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349228689730241140, guid: 9e466f51ad90fcb49a29c25d30ccf655, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2715,6 +2731,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4654631163746347605, guid: 93cc6c705391fa1428ffeeee387b56a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4671319888340149560, guid: 93cc6c705391fa1428ffeeee387b56a1, type: 3}
       propertyPath: House
       value: 
@@ -4094,6 +4114,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2527697042605846561}
     m_Modifications:
+    - target: {fileID: 3196687515791917774, guid: 40d072fa47573ca46ac1b554a246e880, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196687515791917774, guid: 40d072fa47573ca46ac1b554a246e880, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4170263034383049110, guid: 40d072fa47573ca46ac1b554a246e880, type: 3}
       propertyPath: House
       value: 

@@ -193,8 +193,8 @@ public class Player : MonoBehaviour {
 
         if (currentFear >= maxFear)
         {
-
-            endGameScript.FadeToLevel(2);
+            
+            endGameScript.FadeToLevel(0);
             Anomaly.activeAnomalyCount = 0;
         }
 

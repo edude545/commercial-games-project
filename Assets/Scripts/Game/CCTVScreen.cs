@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,4 +27,4 @@ public class CCTVScreen : MonoBehaviour
         //((RectTransform)ri.transform).sizeDelta /= 32f;
     }
 
-}
+}*/

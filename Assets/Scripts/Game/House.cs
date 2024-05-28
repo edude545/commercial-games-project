@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.IO;
 using System.Linq;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Recorder.OutputPath;
+//using static UnityEditor.Recorder.OutputPath;
 
 public class House : MonoBehaviour
 {
@@ -95,7 +95,7 @@ public class House : MonoBehaviour
 
 }
 
-[CustomEditor(typeof(House))]
+/*[CustomEditor(typeof(House))]
 public class HouseEditor : UnityEditor.Editor {
 
     private House house;
@@ -111,4 +111,4 @@ public class HouseEditor : UnityEditor.Editor {
         house = (House)target;
     }
 
-}
+}*/

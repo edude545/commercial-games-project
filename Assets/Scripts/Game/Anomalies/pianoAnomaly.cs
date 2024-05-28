@@ -16,7 +16,6 @@ public class pianoAnomaly : Anomaly
 
     public override void OnAnomalyTriggered()
     {
-        
         setSoundActive(true);
     }
 

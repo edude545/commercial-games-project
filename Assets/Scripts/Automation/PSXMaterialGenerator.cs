@@ -1,9 +1,9 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
+//using UnityEditor;
 using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
@@ -12,6 +12,7 @@ using UnityEngine;
     - lyra
 */
 
+/*
 [System.Serializable, CreateAssetMenu(fileName = "PSXMaterialGenerator", menuName = "Lyra/PSXMaterialGenerator")]
 public class PSXMaterialGenerator : ScriptableObject {
 
@@ -71,7 +72,7 @@ public class PSXMaterialGeneratorEditor : UnityEditor.Editor {
             AssetDatabase.CreateFolder(path, "PSX Materials");
         }*/
         //Debug.Log($"searchpath: {searchpath}\npsxmatpath: {psxmatpath}");
-        Debug.Log($"searchpath: {searchpath}");
+        /*Debug.Log($"searchpath: {searchpath}");
         foreach (string assetpath in Directory.GetFiles(searchpath, "*.fbx", SearchOption.TopDirectoryOnly)) {
             foreach (UnityEngine.Object asset in AssetDatabase.LoadAllAssetsAtPath(assetpath)) {
                 Material mat = asset as Material;
@@ -89,4 +90,4 @@ public class PSXMaterialGeneratorEditor : UnityEditor.Editor {
         }
     }
 
-}
+}*/
