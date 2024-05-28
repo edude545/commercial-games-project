@@ -204,6 +204,7 @@ public class Player : MonoBehaviour {
         {
             
             endGameScript.FadeToLevel(0);
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
             Anomaly.activeAnomalyCount = 0;
         }
 
