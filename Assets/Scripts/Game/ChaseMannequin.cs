@@ -62,7 +62,7 @@ public class ChaseMannequin : MonoBehaviour
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Player.Instance.Camera);
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
         
-        if (GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
+        if (!Input.GetKey(KeyCode.L)){// || GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
             if (!inView)
             {
                 ai.isStopped = true;
