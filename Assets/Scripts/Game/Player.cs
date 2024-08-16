@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -55,14 +56,16 @@ public class Player : MonoBehaviour {
     public bool ControlsLocked { get; private set; } = false;
     public bool MouseLookLocked { get; private set; } = false;
 
+    public bool EnableDebugHotkeys = false;
 
+    public GameObject PauseMenu;
+    public GameObject SettingsMenu;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
         startPos = transform.position;
         Instance = this;
-      
     }
 
     private void Start() {
@@ -70,9 +73,37 @@ public class Player : MonoBehaviour {
         currentFear = 0;  // Ensure currentFear starts at 0
         fear.SetMaxFear(maxFear);
         fear.SetFear(currentFear);
+        HidePauseMenu();
     }
 
+    public void ShowPauseMenu() {
+        PauseMenu.SetActive(true);
+        SettingsMenu.SetActive(false);
+        LockControls();
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+    }
 
+    public void HidePauseMenu() {
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
+        UnlockControls();
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ShowSettingsMenu() {
+        PauseMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+        LockControls();
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void QuitToDesktop() {
+        SceneManager.LoadScene("Title");
+    }
+
+    public void QuitToTitleScreen() {
+        Application.Quit();
+    }
 
     private void Update() {
         raycastedThisFrame = false;
@@ -88,20 +119,16 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Anomaly.anomalyCount++;
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Speed += 1;
-        }
-
         Tools.transform.rotation = Quaternion.Slerp(Tools.transform.rotation, Camera.transform.rotation, ToolsTurnSpeed);
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
+            if (PauseMenu.activeSelf) {
+                HidePauseMenu();
+            } else {
+                ShowPauseMenu();
+            }
         }
+
         if (Input.GetAxis("Mouse ScrollWheel") != 0f) {
             Camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * ScrollSensitivity;
         }
@@ -136,14 +163,24 @@ public class Player : MonoBehaviour {
             source.Play();
         }
         if (!GetControlsLocked()) {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                Application.Quit();
-            }
-
-            if (Input.GetKeyDown(KeyCode.V)) {
-                Noclip = !Noclip;
-                GetComponent<CapsuleCollider>().enabled = !Noclip;
-                Debug.Log("Noclip = " + Noclip);
+            if (EnableDebugHotkeys) {
+                if (Input.GetKeyDown(KeyCode.J)) {
+                    Anomaly.anomalyCount++;
+                }
+                if (Input.GetKeyDown(KeyCode.H)) {
+                    Speed += 1;
+                }
+                if (Input.GetKeyDown(KeyCode.V)) {
+                    Noclip = !Noclip;
+                    GetComponent<CapsuleCollider>().enabled = !Noclip;
+                    Debug.Log("Noclip = " + Noclip);
+                }
+                if (Input.GetKeyDown(KeyCode.RightBracket)) {
+                    Generator.Instance.SetAllLights(false);
+                }
+                if (Input.GetKeyDown(KeyCode.LeftBracket)) {
+                    Generator.Instance.SetAllLights(true);
+                }
             }
 
             //float speedmul;
@@ -233,6 +270,10 @@ public class Player : MonoBehaviour {
                 }
                 else {
                     TakeFearDamage(10);
+                    AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
+                    source.loop = false;
+                    source.clip = AnomalyFixerFail;
+                    source.Play();
                 }
             }
         } else {

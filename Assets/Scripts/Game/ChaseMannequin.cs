@@ -43,16 +43,10 @@ public class ChaseMannequin : MonoBehaviour
     }
 
     void Update() {
-
-        /*if (Input.GetKeyDown(KeyCode.RightBracket)) {
-            Generator.Instance.SetAllLights(false);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftBracket)) {
-            Generator.Instance.SetAllLights(true);
-        }
-        */
-        if (Input.GetKeyDown(KeyCode.K)) {
-            StartChaseSequence();
+        if (Player.Instance.EnableDebugHotkeys) {
+            if (Input.GetKeyDown(KeyCode.K)) {
+                StartChaseSequence();
+            }
         }
 
         if (inKillSequence || !Chasing) {
@@ -61,10 +55,9 @@ public class ChaseMannequin : MonoBehaviour
 
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Player.Instance.Camera);
         float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
-        
-        if (!Input.GetKey(KeyCode.L)){// || GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
-            if (!inView)
-            {
+
+        if (GeometryUtility.TestPlanesAABB(planes, GetComponent<Collider>().bounds)) {
+            if (!inView) {
                 ai.isStopped = true;
             }
             inView = true;
@@ -98,7 +91,6 @@ public class ChaseMannequin : MonoBehaviour
                 StartCoroutine(pointPlayerAtThis());
             }
         }
-
     }
 
     public float PlayerCameraTurnTime = 1f;

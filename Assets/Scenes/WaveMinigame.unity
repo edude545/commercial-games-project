@@ -156,22 +156,24 @@ MonoBehaviour:
   BGColor: {r: 0, g: 0, b: 0, a: 1}
   TargetWaveColor: {r: 0, g: 1, b: 0, a: 1}
   PlayerWaveColor: {r: 1, g: 0.6429671, b: 0.015686274, a: 1}
+  displayWidth: 200
+  displayHeight: 150
   TargetFrequency: 8
   TargetAmplitude: 1
   TargetPhase: 0
   SelectedFrequency: 8
   SelectedAmplitude: 1
   SelectedPhase: 3
-  FrequencyChangeRate: 4
-  AmplitudeChangeRate: 0.5
+  FrequencyChangeRate: 3
+  AmplitudeChangeRate: 0.15
   PhaseChangeRate: 1
   MinFrequency: 5
   MaxFrequency: 30
   MinAmplitude: 0.1
   MaxAmplitude: 0.9
-  FrequencyTolerance: 0.5
-  AmplitudeTolerance: 0.1
-  PhaseTolerance: 0.5
+  FrequencyTolerance: 1
+  AmplitudeTolerance: 0.8
+  PhaseTolerance: 0.7
   CurveSamples: 128
   DebugText: {fileID: 1677302557}
 --- !u!212 &325548467

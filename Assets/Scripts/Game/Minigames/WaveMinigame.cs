@@ -15,6 +15,9 @@ public class WaveMinigame : MonoBehaviour
 
     private Texture2D displayTex;
 
+    public int displayWidth = 400;
+    public int displayHeight = 300;
+
     public float TargetFrequency = 4f; // range: 5 to 30
     public float TargetAmplitude = 1f; // range: 0 to 1
     public float TargetPhase = 0f; // modulo'd by 2*pi
@@ -48,10 +51,9 @@ public class WaveMinigame : MonoBehaviour
     public TMP_Text DebugText;
 
     private void Start() {
-        int width = 400, height = 300;
-        displayTex = new Texture2D(width, height);
+        displayTex = new Texture2D(displayWidth, displayHeight);
         displayTex.filterMode = FilterMode.Point;
-        GetComponent<SpriteRenderer>().sprite = Sprite.Create(displayTex, new Rect(0, 0, width, height), new Vector2(0.5f,0.5f));
+        GetComponent<SpriteRenderer>().sprite = Sprite.Create(displayTex, new Rect(0, 0, displayWidth, displayHeight), new Vector2(0.5f,0.5f));
         startMinigame();
     }
 
@@ -98,7 +100,8 @@ public class WaveMinigame : MonoBehaviour
     private void checkIfCorrect() {
         frequencyInRange = Mathf.Abs(TargetFrequency - SelectedFrequency) < FrequencyTolerance;
         amplitudeInRange = Mathf.Abs(TargetAmplitude - SelectedAmplitude) < AmplitudeTolerance;
-        phaseInRange = (Mathf.Abs(TargetPhase - SelectedPhase) % tau) < PhaseTolerance;
+        float d = (Mathf.Abs(TargetPhase - SelectedPhase) % tau);
+        phaseInRange = d < PhaseTolerance || (tau-d) < PhaseTolerance;
     }
 
     private void drawBG(Color color) {
@@ -116,7 +119,6 @@ public class WaveMinigame : MonoBehaviour
             points[i] = new Vector2(t * displayTex.width, ((Mathf.Sin(t * frequency + phase + Time.time) * 0.5f) * amplitude + 0.5f) * displayTex.height);
         }
         for (int i = 0; i < points.Length-1; i++) {
-            //draw(Mathf.RoundToInt(points[i].x), Mathf.RoundToInt(points[i].y), color);
             drawLine(Mathf.RoundToInt(points[i].x), Mathf.RoundToInt(points[i + 1].x), Mathf.RoundToInt(points[i].y), Mathf.RoundToInt(points[i + 1].y), color);
         }
     }
