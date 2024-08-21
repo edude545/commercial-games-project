@@ -240,7 +240,7 @@ public class Player : MonoBehaviour {
         if (currentFear >= maxFear)
         {
             
-            endGameScript.FadeToLevel(0);
+            endGameScript.FadeToLevel(5);
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             Anomaly.activeAnomalyCount = 0;
         }
