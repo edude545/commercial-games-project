@@ -1,6 +1,6 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
@@ -46,6 +46,10 @@ public class Timer : MonoBehaviour
 
     private void UpdateAnomalyCountDisplay(int solvedAnomalies)
     {
-        anomalyCountText.text = $"{solvedAnomalies} / {requiredAnomaliesToSolve} Anomalies Solved";
+        // Only update the display if solved anomalies are less than or equal to required anomalies
+        if (solvedAnomalies <= requiredAnomaliesToSolve)
+        {
+            anomalyCountText.text = $"{solvedAnomalies} / {requiredAnomaliesToSolve} Anomalies Solved";
+        }
     }
 }
