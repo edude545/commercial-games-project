@@ -1,6 +1,6 @@
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        // Reset anomaly count when the scene loads
+        Anomaly.anomalyCount = 0;
         UpdateTimerDisplay(timeRemaining);
         UpdateAnomalyCountDisplay(Anomaly.anomalyCount);
     }
@@ -32,8 +34,7 @@ public class Timer : MonoBehaviour
             SceneManager.LoadScene(Anomaly.anomalyCount >= requiredAnomaliesToSolve ? winScene : loseScene);
         }
 
-        // Call this method whenever an anomaly is solved.
-        // For example, you could call it from another script or event when the anomaly count increases.
+        // Update the anomaly count display in case it changes during the game
         UpdateAnomalyCountDisplay(Anomaly.anomalyCount);
     }
 
