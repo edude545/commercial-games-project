@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Anomaly : MonoBehaviour
+public abstract class Anomaly : MonoBehaviour, IAnomalyFixerTarget
 {
 
     [Tooltip("How many rooms away from the anomaly the player has to be in order for it to trigger. 0 means it can trigger while the player is in the same room, 1 means adjacent rooms, 2 means rooms adjacent to those, etc..")]
@@ -44,9 +44,13 @@ public abstract class Anomaly : MonoBehaviour
         }
     }
 
+    public virtual bool CanBeInteractedWith() {
+        return IsTriggered;
+    }
+
     public abstract void OnAnomalyTriggered();
 
     public abstract void OnAnomalyFixed();
-
+    
 }
  

@@ -277,10 +277,11 @@ public class Player : MonoBehaviour {
         if (Physics.Raycast(transform.position, Camera.transform.TransformDirection(Vector3.forward), out hit, InteractionDistance, layerMask)) {
             Debug.Log($"Hit object {hit.collider.name}");
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Anomaly anom = hit.collider.GetComponent<Anomaly>();
-            if (anom != null) {
-                if (anom.IsTriggered) {
-                    anom.OnInteract();
+            //Anomaly anom = hit.collider.GetComponent<Anomaly>();
+            IAnomalyFixerTarget target = hit.collider.GetComponent<IAnomalyFixerTarget>();
+            if (target != null) {
+                if (target.CanBeInteractedWith()) {
+                    target.OnInteract();
                     HealFear(20);
                 }
                 else {

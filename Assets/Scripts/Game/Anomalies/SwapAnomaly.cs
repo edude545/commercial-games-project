@@ -6,7 +6,7 @@ public class SwapAnomaly : Anomaly
 {
     private Vector3 initialPosition;
     private Quaternion initialRotation;
-    public Transform[] destinationObjects; // Array of possible destination objects
+    public SwapAnomalyDestination[] destinationObjects; // Array of possible destination objects
 
     private Vector3[] initialPositions; // Store initial positions of destination objects
     private Quaternion[] initialRotations; // Store initial rotations of destination objects
@@ -27,8 +27,8 @@ public class SwapAnomaly : Anomaly
         // Store initial positions and rotations of destination objects
         for (int i = 0; i < destinationObjects.Length; i++)
         {
-            initialPositions[i] = destinationObjects[i].position;
-            initialRotations[i] = destinationObjects[i].rotation;
+            initialPositions[i] = destinationObjects[i].transform.position;
+            initialRotations[i] = destinationObjects[i].transform.rotation;
         }
 
         // Get AudioSource component on the same GameObject
@@ -41,59 +41,61 @@ public class SwapAnomaly : Anomaly
         }
     }
 
-    public override void OnAnomalyTriggered()
-    {
-        if (destinationObjects.Length > 0)
-        {
+    public void Start() {
+        foreach (SwapAnomalyDestination dest in destinationObjects) {
+            dest.Swapper = this;
+            dest.enabled = false;
+        }
+    }
+
+    public override void OnAnomalyTriggered() {
+        if (destinationObjects.Length > 0) {
             // Randomly select a destination object from the array
             int randomIndex = Random.Range(0, destinationObjects.Length);
-            Transform destinationObject = destinationObjects[randomIndex];
+            SwapAnomalyDestination destination = destinationObjects[randomIndex];
+            destination.enabled = true;
 
             // Store the index of the last swapped object
             lastSwappedIndex = randomIndex;
 
             // Store current position and rotation of the destination object
-            Vector3 destinationPosition = destinationObject.position;
-            Quaternion destinationRotation = destinationObject.rotation;
+            Vector3 destinationPosition = destination.transform.position;
+            Quaternion destinationRotation = destination.transform.rotation;
 
             // Swap positions and rotations
-            destinationObject.position = transform.position;
-            destinationObject.rotation = transform.rotation;
+            destination.transform.position = transform.position;
+            destination.transform.rotation = transform.rotation;
             transform.position = destinationPosition;
             transform.rotation = destinationRotation;
 
             Debug.Log("Objects swapped!");
 
             // Play sound from the AudioSource attached to the same GameObject
-            if (audioSource != null && audioSource.clip != null)
-            {
+            if (audioSource != null && audioSource.clip != null) {
                 audioSource.Play();
             }
-        }
-        else
-        {
+        } else {
             Debug.LogWarning("No destination objects set!");
         }
     }
 
-    public override void OnAnomalyFixed()
-    {
+    public override void OnAnomalyFixed() {
         // Restore initial position and rotation of the anomaly object
         transform.position = initialPosition;
         transform.rotation = initialRotation;
 
         // Restore initial position and rotation of the last swapped object if any
-        if (lastSwappedIndex != -1)
-        {
-            destinationObjects[lastSwappedIndex].position = initialPositions[lastSwappedIndex];
-            destinationObjects[lastSwappedIndex].rotation = initialRotations[lastSwappedIndex];
+        if (lastSwappedIndex != -1) {
+            destinationObjects[lastSwappedIndex].transform.position = initialPositions[lastSwappedIndex];
+            destinationObjects[lastSwappedIndex].transform.rotation = initialRotations[lastSwappedIndex];
         }
 
         // Stop the audio if it is set to loop
-        if (audioSource != null && audioSource.isPlaying && audioSource.loop)
-        {
+        if (audioSource != null && audioSource.isPlaying && audioSource.loop) {
             audioSource.Stop();
         }
+
+        destinationObjects[lastSwappedIndex].GetComponent<SwapAnomalyDestination>().enabled = false;
 
         // Reset the last swapped index
         lastSwappedIndex = -1;
