@@ -80,21 +80,27 @@ public class Player : MonoBehaviour {
         PauseMenu.SetActive(true);
         SettingsMenu.SetActive(false);
         LockControls();
+        LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
+        StopScanning();
     }
 
     public void HidePauseMenu() {
         PauseMenu.SetActive(false);
         SettingsMenu.SetActive(false);
         UnlockControls();
+        UnlockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
+    // For now, assume this can be called when the pause menu is not active
     public void ShowSettingsMenu() {
         PauseMenu.SetActive(false);
         SettingsMenu.SetActive(true);
         LockControls();
+        LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
+        StopScanning();
     }
 
     public void QuitToDesktop() {
@@ -103,6 +109,23 @@ public class Player : MonoBehaviour {
 
     public void QuitToTitleScreen() {
         Application.Quit();
+    }
+
+    public void StartScanning() {
+        scanning = true;
+        scanProgress = 0f;
+        ScanProgressBar.gameObject.SetActive(true);
+        AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
+        source.loop = true;
+        source.clip = AnomalyFixerScanLoop;
+        source.Play();
+    }
+
+    public void StopScanning() {
+        scanning = false;
+        scanProgress = 0f;
+        ScanProgressBar.gameObject.SetActive(false);
+        AnomalyFixer.GetComponent<AudioSource>().Stop();
     }
 
     private void Update() {
@@ -132,37 +155,29 @@ public class Player : MonoBehaviour {
         if (Input.GetAxis("Mouse ScrollWheel") != 0f) {
             Camera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel") * ScrollSensitivity;
         }
-        if (Input.GetMouseButtonDown(2)) {
-            Camera.fieldOfView = 60f;
-        }
+        
         if (Input.GetKeyDown(KeyCode.F12)) {
             ScreenCapture.CaptureScreenshot("screenshot");
         }
-        if (Input.GetMouseButtonDown(0)) {
-            scanning = true;
-            scanProgress = 0f;
-            ScanProgressBar.gameObject.SetActive(true);
-            AudioSource source = AnomalyFixer.GetComponent<AudioSource>();
-            source.loop = true;
-            source.clip = AnomalyFixerScanLoop;
-            source.Play();
-        }
-        if (Input.GetMouseButtonUp(0)) {
-            if (true) {
-                scanning = false;
-                scanProgress = 0f;
-                ScanProgressBar.gameObject.SetActive(false);
-                AnomalyFixer.GetComponent<AudioSource>().Stop();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.F)) {
-            GameObject f = Flashlight.transform.GetChild(0).gameObject;
-            f.SetActive(!f.activeSelf);
-            AudioSource source = Flashlight.GetComponent<AudioSource>();
-            source.clip = Flashlight.activeSelf ? FlashlightOn : FlashlightOff;
-            source.Play();
-        }
         if (!GetControlsLocked()) {
+            if (Input.GetMouseButtonDown(2)) {
+                Camera.fieldOfView = 60f;
+            }
+            if (Input.GetMouseButtonDown(0)) {
+                StartScanning();
+            }
+            if (Input.GetMouseButtonUp(0)) {
+                if (true) {
+                    StopScanning();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.F)) {
+                GameObject f = Flashlight.transform.GetChild(0).gameObject;
+                f.SetActive(!f.activeSelf);
+                AudioSource source = Flashlight.GetComponent<AudioSource>();
+                source.clip = Flashlight.activeSelf ? FlashlightOn : FlashlightOff;
+                source.Play();
+            }
             if (EnableDebugHotkeys) {
                 if (Input.GetKeyDown(KeyCode.J)) {
                     Anomaly.anomalyCount++;
