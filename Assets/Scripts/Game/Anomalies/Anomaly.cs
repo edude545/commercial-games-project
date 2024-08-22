@@ -15,9 +15,9 @@ public abstract class Anomaly : MonoBehaviour
     public bool CanTriggerMultipleTimes = false;
 
     [HideInInspector]
-    public bool IsTriggered = false;
+    public bool IsTriggered = false; // True if the anomaly has triggered and become active.
     [HideInInspector]
-    public bool HasTriggered = false;
+    public bool HasTriggered = false; // True if the anomaly has triggered once in the past. Disables the anomaly from activating again, unless CanTriggerMultipleTimes is true.
 
     public static int anomalyCount = 0;
     public static int activeAnomalyCount = 0;

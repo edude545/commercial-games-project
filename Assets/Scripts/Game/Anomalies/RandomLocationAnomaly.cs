@@ -29,8 +29,7 @@ public class RandomLocationAnomaly : Anomaly
 
     public override void OnAnomalyTriggered()
     {
-        if (destinationPositions.Length > 0 && destinationRotations.Length > 0)
-        {
+        if (destinationPositions.Length > 0 && destinationRotations.Length > 0) {
             int randomIndex = Random.Range(0, destinationPositions.Length);
             transform.position = destinationPositions[randomIndex].position;
             transform.rotation = destinationRotations[randomIndex].rotation;
@@ -42,8 +41,7 @@ public class RandomLocationAnomaly : Anomaly
                 audioSource.Play();
             }
         }
-        else
-        {
+        else {
             Debug.LogWarning("No destination positions or rotations set!");
         }
     }
@@ -53,9 +51,10 @@ public class RandomLocationAnomaly : Anomaly
         transform.position = initialPosition;
         transform.rotation = initialRotation;
         // Stop the audio if it is set to loop
-        if (audioSource != null && audioSource.isPlaying && audioSource.loop)
-        {
+        if (audioSource != null && audioSource.isPlaying && audioSource.loop) {
             audioSource.Stop();
         }
+        IsTriggered = false;
+        enabled = false;
     }
 }
