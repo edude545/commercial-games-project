@@ -61,11 +61,15 @@ public class Player : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject SettingsMenu;
 
+    public AudioSource FootstepSource;
+    private bool playedFootstepsLastFrame;
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
         startPos = transform.position;
         Instance = this;
+        playedFootstepsLastFrame = false;
     }
 
     private void Start() {
@@ -83,6 +87,7 @@ public class Player : MonoBehaviour {
         LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         StopScanning();
+        StopFootsteps();
     }
 
     public void HidePauseMenu() {
@@ -101,6 +106,7 @@ public class Player : MonoBehaviour {
         LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         StopScanning();
+        StopFootsteps();
     }
 
     public void QuitToDesktop() {
@@ -127,6 +133,20 @@ public class Player : MonoBehaviour {
         scanProgress = 0f;
         ScanProgressBar.gameObject.SetActive(false);
         AnomalyFixer.GetComponent<AudioSource>().Stop();
+    }
+
+    public void StartFootsteps() {
+        if (!playedFootstepsLastFrame) {
+            playedFootstepsLastFrame = true;
+            FootstepSource.Play();
+        }
+    }
+
+    public void StopFootsteps() {
+        if (playedFootstepsLastFrame) {
+            playedFootstepsLastFrame = false;
+            FootstepSource.Stop();
+        }
     }
 
     private void Update() {
@@ -189,6 +209,7 @@ public class Player : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.V)) {
                     Noclip = !Noclip;
                     GetComponent<CapsuleCollider>().enabled = !Noclip;
+                    StopFootsteps();
                     Debug.Log("Noclip = " + Noclip);
                 }
                 if (Input.GetKeyDown(KeyCode.RightBracket)) {
@@ -209,11 +230,18 @@ public class Player : MonoBehaviour {
                     Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0
                 ) * /*speedmul * */ Speed;
             } else {
+                float ad = Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0;
+                float ws = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
                 dv += Quaternion.Euler(0, Camera.transform.rotation.eulerAngles.y, 0) * new Vector3(
-                    (Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0) * /*speedmul * */  Speed,
+                    ad * /*speedmul * */  Speed,
                     Input.GetKeyDown(KeyCode.Space) ? JumpPower : 0,
-                    (Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0) * /*speedmul * */  Speed
+                    ws * /*speedmul * */  Speed
                 );
+                if (ws == 0 && ws == 0) {
+                    StopFootsteps();
+                } else {
+                    StartFootsteps();
+                }
             }
 
             // Only rotate camera and do raycast if the mouse has been moved

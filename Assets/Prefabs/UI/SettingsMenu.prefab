@@ -1060,7 +1060,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7406585399568887250}
         m_TargetAssemblyTypeName: volumeSettings, Assembly-CSharp
-        m_MethodName: SetStaticVolume
+        m_MethodName: SetMixerVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: 17b7a7b0ebcbfdc449fcbbbacd14e8b9, type: 2}
+  GroupName: Ambience
 --- !u!1 &4728120485899009558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,7 +2000,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 355516624983254551}
         m_TargetAssemblyTypeName: volumeSettings, Assembly-CSharp
-        m_MethodName: SetStaticVolume
+        m_MethodName: SetMixerVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2022,6 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: 17b7a7b0ebcbfdc449fcbbbacd14e8b9, type: 2}
+  GroupName: Footsteps
 --- !u!1 &5706113059499275875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4544265201709825079}
         m_TargetAssemblyTypeName: volumeSettings, Assembly-CSharp
-        m_MethodName: SetStaticVolume
+        m_MethodName: SetMixerVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2420,6 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: 17b7a7b0ebcbfdc449fcbbbacd14e8b9, type: 2}
+  GroupName: SFX
 --- !u!1 &7243021101320937644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,7 +2686,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 944257504596312039}
         m_TargetAssemblyTypeName: volumeSettings, Assembly-CSharp
-        m_MethodName: SetStaticVolume
+        m_MethodName: SetMixerVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2706,6 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: 17b7a7b0ebcbfdc449fcbbbacd14e8b9, type: 2}
+  GroupName: Master
 --- !u!1 &7962647692949953028
 GameObject:
   m_ObjectHideFlags: 0
