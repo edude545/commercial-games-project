@@ -75,6 +75,7 @@ public class Player : MonoBehaviour {
     private void Start() {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         currentFear = 0;  // Ensure currentFear starts at 0
+        Anomaly.anomalyCount = 0;
         fear.SetMaxFear(maxFear);
         fear.SetFear(currentFear);
         HidePauseMenu();

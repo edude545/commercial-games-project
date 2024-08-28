@@ -12,6 +12,7 @@ public class TitleScreen : MonoBehaviour
 
     private void Start() {
         ShowTitleMenu();
+        Anomaly.anomalyCount = 0;
     }
 
     public void ShowTitleMenu() {

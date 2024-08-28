@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.0003
+  TriggerChancePerFrame: 0.0004
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
@@ -1903,7 +1903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 583, y: -4}
+  m_AnchoredPosition: {x: 769.7, y: -4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &667839450
@@ -3291,12 +3291,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.00013
+  TriggerChancePerFrame: 0.0003
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
   destinationPosition: {fileID: 941092983}
   destinationRotation: {fileID: 941092983}
+--- !u!65 &1105478532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105478525}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0030220635, y: 0.0041257413, z: 0.0058994736}
+  m_Center: {x: 0.00024229128, y: 2.3859678e-11, z: 0.0027118518}
 --- !u!1 &1106427482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,7 +3980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time till Evac: '
+  m_text: 'Anomaly Disaster Event:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a89a73656feba0442bf004f77e82e4e5, type: 2}
   m_sharedMaterial: {fileID: 5537072059068523543, guid: a89a73656feba0442bf004f77e82e4e5, type: 2}
@@ -4022,7 +4043,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -115.10079, w: 0}
+  m_margin: {x: 0, y: 0, z: -214.77774, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4935,6 +4956,7 @@ PrefabInstance:
     - {fileID: 7961653056579776384, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
     - {fileID: 6376559878468371916, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
     - {fileID: 2320963789241034858, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+    - {fileID: 3520125618172448609, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8986382840196116132, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       insertIndex: -1
@@ -5108,6 +5130,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1734548788286576048, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1105478529}
+    - targetCorrespondingSourceObject: {fileID: 1734548788286576048, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1105478532}
   m_SourcePrefab: {fileID: 100100000, guid: 539580172ade6cd4bb8a3b1d61480c5f, type: 3}
 --- !u!4 &1447834371 stripped
 Transform:
@@ -5199,7 +5224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.0003
+  TriggerChancePerFrame: 0.00035
   CanTriggerMultipleTimes: 1
   IsTriggered: 0
   HasTriggered: 0
@@ -5524,7 +5549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.00293
+  TriggerChancePerFrame: 0.0005
   CanTriggerMultipleTimes: 0
   IsTriggered: 0
   HasTriggered: 0
@@ -5667,7 +5692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumRoomDistanceToTrigger: 2
-  TriggerChancePerFrame: 0.0002
+  TriggerChancePerFrame: 0.0005
   CanTriggerMultipleTimes: 1
   IsTriggered: 0
   HasTriggered: 0
@@ -6072,7 +6097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171987545002950012, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 171987545002950012, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_PlaneDistance
@@ -6197,6 +6222,10 @@ PrefabInstance:
     - target: {fileID: 7042521646143648302, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111073272056579124, guid: 6106823a878fe9742838b4e115d28725, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7424587065137079493, guid: 6106823a878fe9742838b4e115d28725, type: 3}
       propertyPath: m_AnchorMax.y

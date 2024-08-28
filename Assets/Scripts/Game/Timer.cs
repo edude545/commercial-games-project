@@ -1,6 +1,6 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -28,6 +28,14 @@ public class Timer : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         UpdateTimerDisplay(timeRemaining);
 
+        // Check if the anomaly count reaches the required number
+        if (Anomaly.anomalyCount >= requiredAnomaliesToSolve)
+        {
+            timerIsRunning = false;
+            SceneManager.LoadScene(winScene);
+        }
+
+        // Check if the time has run out
         if (timeRemaining <= 0)
         {
             timerIsRunning = false;
