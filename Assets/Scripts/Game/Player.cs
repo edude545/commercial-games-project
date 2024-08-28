@@ -104,11 +104,12 @@ public class Player : MonoBehaviour {
     }
 
     public void QuitToDesktop() {
-        SceneManager.LoadScene("Title");
+        
+        Application.Quit();
     }
 
     public void QuitToTitleScreen() {
-        Application.Quit();
+        SceneManager.LoadScene("Title");
     }
 
     public void StartScanning() {
