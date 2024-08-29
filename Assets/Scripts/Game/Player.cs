@@ -64,6 +64,8 @@ public class Player : MonoBehaviour {
     public AudioSource FootstepSource;
     private bool playedFootstepsLastFrame;
 
+    public HeadBob HeadBob;
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
         //col = GetComponent<Collider>();
@@ -88,7 +90,7 @@ public class Player : MonoBehaviour {
         LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         StopScanning();
-        StopFootsteps();
+        OnStopMoving();
     }
 
     public void HidePauseMenu() {
@@ -107,7 +109,7 @@ public class Player : MonoBehaviour {
         LockMouseLook();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         StopScanning();
-        StopFootsteps();
+        OnStopMoving();
     }
 
     public void QuitToDesktop() {
@@ -136,18 +138,20 @@ public class Player : MonoBehaviour {
         AnomalyFixer.GetComponent<AudioSource>().Stop();
     }
 
-    public void StartFootsteps() {
+    public void WhileMoving() {
         if (!playedFootstepsLastFrame) {
             playedFootstepsLastFrame = true;
             FootstepSource.Play();
         }
+        HeadBob.Bobbing = true;
     }
 
-    public void StopFootsteps() {
+    public void OnStopMoving() {
         if (playedFootstepsLastFrame) {
             playedFootstepsLastFrame = false;
             FootstepSource.Stop();
         }
+        HeadBob.Bobbing = false;
     }
 
     private void Update() {
@@ -210,7 +214,7 @@ public class Player : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.V)) {
                     Noclip = !Noclip;
                     GetComponent<CapsuleCollider>().enabled = !Noclip;
-                    StopFootsteps();
+                    OnStopMoving();
                     Debug.Log("Noclip = " + Noclip);
                 }
                 if (Input.GetKeyDown(KeyCode.RightBracket)) {
@@ -239,9 +243,9 @@ public class Player : MonoBehaviour {
                     ws * /*speedmul * */  Speed
                 );
                 if (ws == 0 && ws == 0) {
-                    StopFootsteps();
+                    OnStopMoving();
                 } else {
-                    StartFootsteps();
+                    WhileMoving();
                 }
             }
 
