@@ -2587,7 +2587,7 @@ MonoBehaviour:
   Bobbing: 0
   ReturnSpeed: 0.08
   ReturnSnapDistance: 0.01
-  BobSpeed: 0.0364
+  BobSpeed: 0.0354
   HorizontalBobDistance: 0.07
   VerticalBobDistance: 0.02
 --- !u!1 &7433704225257716500

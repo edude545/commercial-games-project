@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
@@ -10,6 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private string winScene; // Scene to load if the player wins
     [SerializeField] private string loseScene; // Scene to load if the player loses
     [SerializeField] private int requiredAnomaliesToSolve = 10; // Required anomalies to solve
+    [SerializeField] private float winDelay = 2f; // Delay in seconds before switching to the win scene
 
     private bool timerIsRunning = true;
 
@@ -32,14 +34,15 @@ public class Timer : MonoBehaviour
         if (Anomaly.anomalyCount >= requiredAnomaliesToSolve)
         {
             timerIsRunning = false;
-            SceneManager.LoadScene(winScene);
+            StartCoroutine(LoadSceneAfterDelay(winScene, winDelay));
         }
 
         // Check if the time has run out
         if (timeRemaining <= 0)
         {
             timerIsRunning = false;
-            SceneManager.LoadScene(Anomaly.anomalyCount >= requiredAnomaliesToSolve ? winScene : loseScene);
+            string sceneToLoad = Anomaly.anomalyCount >= requiredAnomaliesToSolve ? winScene : loseScene;
+            StartCoroutine(LoadSceneAfterDelay(sceneToLoad, winDelay));
         }
 
         // Update the anomaly count display in case it changes during the game
@@ -60,5 +63,11 @@ public class Timer : MonoBehaviour
         {
             anomalyCountText.text = $"{solvedAnomalies} / {requiredAnomaliesToSolve} Anomalies Solved";
         }
+    }
+
+    private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }
